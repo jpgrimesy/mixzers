@@ -4,17 +4,12 @@ from django.contrib.auth.models import User
 
 
 # EMPLOYER MODEL
-class Employer(models.Model):
-    name = models.CharField(max_length=250)
-    # location
-
-
-# STUDENT MODEL
-# emily: to be completed on her end
-class Student (models.Model):
-    name = models.CharField(max_length=250)
-    # location
-    # primary key to be incorporated
+class Mixzer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    location = models.CharField(max_length=100)
+    is_student = models.BooleanField(default=False)
+    college = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=13)
 
 
 # MESSAGE MODEL
