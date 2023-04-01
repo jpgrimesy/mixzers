@@ -2,15 +2,16 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 
-
-# EMPLOYER MODEL
 class Mixzer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    location = models.CharField(max_length=100)
+    location = models.CharField(max_length=100, blank=True)
     is_student = models.BooleanField(default=False)
-    college = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=13)
+    college = models.CharField(max_length=100, blank=True)
+    phone_number = models.CharField(max_length=18, blank=True)
 
+    def verify_student(self):
+        return self.user.email.endswith('.edu')
+        
 
 # MESSAGE MODEL
 class Message(models.Model):
@@ -37,3 +38,4 @@ class Job_Post(models.Model):
     salary = models.CharField(max_length=250)
     schedule = models.CharField(max_length=250)
     students = models.ManyToManyField(Student)
+
