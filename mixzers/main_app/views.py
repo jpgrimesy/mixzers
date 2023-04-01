@@ -6,7 +6,24 @@ from .forms import UserForm
 from .models import Mixzer
 # Create your views here.
 
+# HOME PAGE
+def home(request):
+    return render(request, 'home.html')
 
+# ABOUT PAGE    
+def about(request):
+    return render(request, 'about.html')
+
+# POST A JOB PAGE
+def job_post(request):
+    return render(request, 'jobpost.html')
+
+# NEAR JOB PAGE
+def near_job(request):
+    return render(request, 'nearjob.html')
+    
+
+# SIGNUP PAGE, STILL NEED TO FIX THE REDIRECTS 
 def signup(request):
   error_message = ''
   if request.method == 'POST':
@@ -27,12 +44,15 @@ def signup(request):
   return render(request, 'test.html', context)
 
 
+# PROFILE PAGE, TEST PAGE MADE JUST TO SHOW INFO
 def profile(request):
   user = Mixzer.objects.get(user=request.user)
   return render(request, 'test_profile.html', {
     'user': user
   })
+  
 
+# VERIFIES EDU EMAIL
 def verify(request):
   user = Mixzer.objects.get(user=request.user)
   verified = user.verify_student()
@@ -44,7 +64,4 @@ def verify(request):
     error_message = 'E-mail must be .edu to be verified'
     messages.error(request, error_message)
 
-  return redirect('home')
-  
-  
-  
+  return redirect('profile')

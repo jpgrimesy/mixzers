@@ -1,0 +1,23 @@
+header{
+    background-color: #052C34;
+    height: 5rem;
+}
+
+a{
+    color: white;
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;    
+
+}
+.MixZers{
+    text-align: center;
+    font-size: 24px;
+    background-color: #077187;
+}
