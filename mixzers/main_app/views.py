@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 from .forms import UserForm
 from .models import Mixzer
 # Create your views here.
@@ -27,7 +28,23 @@ def signup(request):
 
 
 def profile(request):
-  user = Mixzer.objects.filter(user=request.user)
+  user = Mixzer.objects.get(user=request.user)
   return render(request, 'test_profile.html', {
-    'user': user[0]
+    'user': user
   })
+
+def verify(request):
+  user = Mixzer.objects.get(user=request.user)
+  verified = user.verify_student()
+
+  if verified:
+    user.is_student = verified
+    user.save()
+  else:
+    error_message = 'E-mail must be .edu to be verified'
+    messages.error(request, error_message)
+
+  return redirect('home')
+  
+  
+  
