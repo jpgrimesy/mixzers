@@ -37,5 +37,5 @@ class Job_Post(models.Model):
     job_type = models.CharField(max_length=250)
     salary = models.CharField(max_length=250)
     schedule = models.CharField(max_length=250)
-    students = models.ManyToManyField(Student)
+    students = models.ManyToManyField(Mixzer)
 
