@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 
+
 class Mixzer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     location = models.CharField(max_length=100, blank=True)
@@ -11,22 +12,26 @@ class Mixzer(models.Model):
 
     def verify_student(self):
         return self.user.email.endswith('.edu')
-        
+
 
 # MESSAGE MODEL
 class Message(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField(max_length=250)
-    # sender_id with foriegn key to be added
-    # recipient_id with foriegn key to be added
+    sender_id = models.ForeignKey(
+        Mixzer, on_delete=models.CASCADE, related_name='sender')
+    recipient_id = models.ForeignKey(
+        Mixzer, on_delete=models.CASCADE, related_name='recipient')
 
 
 # REVIEW MODEL
 class Review(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField(max_length=250)
-    # reviewer_id with foriegn key to be added
-    # reviewee_id with foriegn key to be added
+    reviewer_id = models.ForeignKey(
+        Mixzer, on_delete=models.CASCADE, related_name='reviewer')
+    reviewee_id = models.ForeignKey(
+        Mixzer, on_delete=models.CASCADE, related_name='reviewee')
 
 
 # JOB POST MODEL
@@ -38,4 +43,3 @@ class Job_Post(models.Model):
     salary = models.CharField(max_length=250)
     schedule = models.CharField(max_length=250)
     students = models.ManyToManyField(Mixzer)
-

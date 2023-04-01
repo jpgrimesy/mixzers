@@ -14,11 +14,17 @@
     {% endif %}
     {% if user %}
         {{ user.user.username }}
+        <br>
         {{ user.location }}
+        <br>
         {{ user.user.email }}
+        <br>
         {{ user.is_student }}
+        <br>
         {{ error_message }}
+        <br>
         {{ user.location }}
+        <br>
     {% else %}
         not here
     {% endif %}
