@@ -3,5 +3,6 @@ from . import views
 from .models import Mixzer
 
 urlpatterns = [
+    path('', views.profile, name='home'),
     path('mixzer/signup/', views.signup, name='signup'),
 ]
