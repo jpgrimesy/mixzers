@@ -1,14 +1,39 @@
+
+body::-webkit-scrollbar{
+    display: none;
+}
 header{
+    background-color: #000000;
+    height: 4.5rem;
+    margin: -2rem;
+    margin-bottom: 1rem;
+    margin-right: -0.5rem;
+   
+
+}
+footer{
+    text-align: center;
     background-color: #052C34;
+    color: white;
     height: 5rem;
+    margin: -1rem;
+    margin-right: -.5rem;
+}
+.rights{
+    padding-top: 2rem;
 }
 
+/** NAVIGATION **/
 a{
     color: white;
     display: flex;
     flex-direction: row; 
     justify-content: space-between;
-    padding-top: 1rem;
+    padding-top: 3rem;
+    padding-right: 2rem;
+    text-decoration: none;
+    padding-left: 1rem;
+
 }
 ul{
     list-style: none;
@@ -16,8 +41,158 @@ ul{
     flex-direction: row;    
 
 }
+
+
+/** BRAND **/
 .MixZers{
     text-align: center;
-    font-size: 24px;
-    background-color: #077187;
+    font-size: 3rem;
+    background-color: #000000;
+    margin: -1rem;
+    height: 3rem;
+    letter-spacing: .5rem;
+    color: rgb(255, 255, 255);
+    margin-top: -3rem;
+    margin-right: -0.5rem;
+    padding-left: 65rem;
+    margin-top: -4rem;
+    
+}
+
+/** TOP SQUARE CONTENT **/
+.top-square{
+    background-image: url('https://www.intellis.io/hubfs/Facility-Condition-Assessment-Capital-Planning-Colleges-Universities.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 100px 0px 200px;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    height: 25rem;
+    margin-top: -4.1rem;
+    padding-bottom: 5rem;
+    opacity: 0.8;
+    font-size: 3rem;
+}
+.college{
+   margin-left: 10rem;
+    padding-top: 8rem;
+}
+.student{
+    color: white;
+}
+.students{
+    margin-left: 20rem;
+    margin-top: -2rem;
+}
+
+
+
+/** MIDDLE SQUARE CONTENT **/
+.middle-square{
+    background-image: url('https://www.gannett-cdn.com/-mm-/83e081eae80cd2848af52df6da1060d621468f19/c=0-111-2120-1303/local/-/media/2020/02/10/USATODAY/usatsports/MotleyFool-TMOT-53b92eeb-cash-handing.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: -2.7rem;
+    height: 35rem;
+    margin-right: -0.5rem;
+    font-size: 2.5rem;
+    color: black;
+    opacity: 0.8;
+    text-align: right;
+    margin-top: -3.32rem;
+}
+.infoCreate{
+    padding-top: 6rem;
+    padding-right: 1rem;
+   
+}
+.confidence{
+    padding-right: 8rem;
+}
+.earn{
+    padding-right: 8rem;
+}
+
+/** BOTTOM SQUARE CONTENT ***/
+.bottom-square{
+    margin: 1rem;
+    height: 30rem;
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+    background-color: #ffffff;
+    margin-top: 2.7rem;
+    text-align: center;
+}
+.home-reviews{
+    display: flex;
+    justify-content: space-around;
+    height: 24rem;
+    padding-top: 3rem;
+}
+.first-review{
+    border: 2px solid black;
+    width: 23rem;
+}
+.second-review{
+    border: 2px solid black;
+    width: 23rem;
+}
+.third-review{
+    border: 2px solid black;
+    width: 23rem;
+}
+.first-pic{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    margin-left: 7rem;
+    margin-top: 1rem;
+}
+.firstpic{
+    width: 100%;
+    height : 100%;
+    object-fit: contain;
+}
+
+p{
+    margin-top: -0.7rem;
+}
+.second-pic{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    margin-left: 7rem;
+    margin-top: 1rem;
+}
+.secondpic{
+    width: 100%;
+    height : 100%;
+    object-fit: contain;
+}
+.third-pic{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    margin-left: 7rem;
+    margin-top: 1rem;
+}
+.thirdpic{
+    width: 100%;
+    height : 100%;
+    object-fit: contain;
 }
