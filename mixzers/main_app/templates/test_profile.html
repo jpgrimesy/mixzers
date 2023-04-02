@@ -9,6 +9,7 @@
 <body>
     {% if messages %}
         {% for message in messages %}
+      
         {{ message }}
         {% endfor %}
     {% endif %}
@@ -19,10 +20,10 @@
         {{ user.is_student }}
         {{ error_message }}
         {{ user.location }}
-    {% if messages %}
-    {% for message in messages %}
+    {% if user_messages %}
+    {% for message in user_messages %}
 
-        {{ message }}
+        {{ message.content }}
     {% endfor %}
     {% endif %}
     {% else %}
