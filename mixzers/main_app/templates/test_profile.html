@@ -9,6 +9,7 @@
 <body>
     {% if messages %}
         {% for message in messages %}
+      
         {{ message }}
         {% endfor %}
     {% endif %}
@@ -24,17 +25,15 @@
         {{ error_message }}
         <br>
         {{ user.location }}
-        <br>
+    {% if user_messages %}
+    {% for message in user_messages %}
 
-        {% if messages %}
-        {% for message in messages %}
-
-            {{ message }}
-        {% endfor %}
-        {% endif %}
-        {% else %}
-            not here
-        {% endif %}
+        {{ message.content }}
+    {% endfor %}
+    {% endif %}
+    {% else %}
+        not here
+    {% endif %}
     <a href="{% url 'verify' %}">verify</a>
 </body>
 </html>
