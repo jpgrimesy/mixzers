@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
+from django.contrib.auth import authenticate, login
+from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .forms import UserForm, AddExtraUserCreationForm
 from .models import Mixzer, Message, Review
 # Create your views here.
@@ -52,16 +54,19 @@ def signup(request):
 
 
 # PROFILE PAGE, TEST PAGE MADE JUST TO SHOW INFO
+@login_required
 def profile(request):
   user = Mixzer.objects.get(user=request.user)
-  messages = Message.objects.filter(recipient=request.user)
+  user_messages = Message.objects.filter(recipient=user)
+
   return render(request, 'test_profile.html', {
     'user': user,
-    'messages': messages
+    'user_messages': user_messages
   })
   
 
 # VERIFIES EDU EMAIL
+@login_required
 def verify(request):
   user = Mixzer.objects.get(user=request.user)
   verified = user.verify_student()
