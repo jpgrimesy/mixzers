@@ -14,7 +14,9 @@
 <form method="POST" action="{% url 'signup' %}">
   {% csrf_token %}
   {{ form.as_p }}
+  
   {{ add_form.as_p }}
+  {{ addtl_form.as_p }}
   <input type="submit" class="btn" value="Sign Up">
 </form>
 

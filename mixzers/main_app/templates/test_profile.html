@@ -19,6 +19,12 @@
         {{ user.is_student }}
         {{ error_message }}
         {{ user.location }}
+    {% if messages %}
+    {% for message in messages %}
+
+        {{ message }}
+    {% endfor %}
+    {% endif %}
     {% else %}
         not here
     {% endif %}
