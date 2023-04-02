@@ -24,6 +24,7 @@
     {% for message in user_messages %}
 
         {{ message.content }}
+        {{ message.sender.user.username }}
     {% endfor %}
     {% endif %}
     {% else %}

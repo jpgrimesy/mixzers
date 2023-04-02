@@ -7,6 +7,7 @@ urlpatterns = [
     path('job_post/', views.near_job, name="jobpost"),
     path('near_job/', views.near_job, name='nearjob'),
     path('profile/', views.profile, name='profile'),
-    path('mixzer/signup/', views.signup, name='signup'),
+    path('signup/', views.signup, name='signup'),
     path('verify/', views.verify, name="verify"),
+    path('send-message/<int:user_id>/', views.send_message, name="send_message")
 ]

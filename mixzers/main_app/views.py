@@ -4,8 +4,9 @@ from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserForm, AddExtraUserCreationForm
+from .forms import UserForm, AddExtraUserCreationForm, MessageForm
 from .models import Mixzer, Message, Review
+from django.views.generic.edit import CreateView
 # Create your views here.
 
 # HOME PAGE
@@ -43,7 +44,7 @@ def signup(request):
       addtl_user.user = user
       addtl_user.save()
       login(request, user)
-      return redirect('/admin/')
+      return redirect('/profile/')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
@@ -79,3 +80,25 @@ def verify(request):
     messages.error(request, error_message)
 
   return redirect('profile')
+
+# class SendMessage(CreateView):
+#    model = Message
+#    fields = '__all__'
+
+@login_required
+def send_message(request, user_id):
+  sender = Mixzer.objects.get(user=request.user)
+  recipient = Mixzer.objects.get(id=user_id)
+  if request.method == 'POST':
+    form = MessageForm(request.POST)
+    if form.is_valid():
+      message = form.save(commit=False)
+      message.sender = sender
+      message.recipient = recipient
+      message.save()
+      return redirect('profile')
+  form = MessageForm()
+  return render(request, 'main_app/message_form.html', {
+     'form': form
+  })
+  
