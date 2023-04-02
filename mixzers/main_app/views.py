@@ -3,7 +3,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .forms import UserForm, AddExtraUserCreationForm
-from .models import Mixzer
+from .models import Mixzer, Message, Review
 # Create your views here.
 
 # HOME PAGE
@@ -54,8 +54,10 @@ def signup(request):
 # PROFILE PAGE, TEST PAGE MADE JUST TO SHOW INFO
 def profile(request):
   user = Mixzer.objects.get(user=request.user)
+  messages = Message.objects.filter(recipient=request.user)
   return render(request, 'test_profile.html', {
-    'user': user
+    'user': user,
+    'messages': messages
   })
   
 
