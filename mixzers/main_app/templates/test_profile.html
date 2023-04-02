@@ -25,10 +25,19 @@
         {{ error_message }}
         <br>
         {{ user.location }}
+
+    {% else %}
+        not here
+    {% endif %}
+
+        {{ message.content }}
+    {% endfor %}
+    {% endif %}
         <br>
     {% else %}
         not here
     {% endif %}
+>>>>>>> e0cb331 (about template update)
     <a href="{% url 'verify' %}">verify</a>
 </body>
 </html>

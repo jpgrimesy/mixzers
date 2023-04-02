@@ -24,21 +24,33 @@ class Message(models.Model):
     recipient_id = models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='recipient')
 
-
 # REVIEW MODEL
+
+
 class Review(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField(max_length=250)
+
     rating = models.PositiveIntegerField(
         default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
-    reviewer = models.ForeignKey(
+
+    reviewer_id = models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='reviewer')
     reviewee = models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='reviewee')
     created_on = models.DateTimeField(auto_now_add=True)
 
+    rating = models.PositiveIntegerField(
+        default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
+    # created_on = models.DateTimeField(auto_now_add=True)
+    # reviewer_id = models.ForeignKey(
+    #     Mixzer, on_delete=models.CASCADE, related_name='reviewer')
+    # reviewee_id = models.ForeignKey(
+    #     Mixzer, on_delete=models.CASCADE, related_name='reviewee')
 
 # JOB POST MODEL
+
+
 class Job_Post(models.Model):
     title = models.CharField(max_length=250)
     job_description = models.TextField(max_length=250)
