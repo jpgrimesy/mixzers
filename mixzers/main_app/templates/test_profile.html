@@ -25,12 +25,7 @@
         {{ error_message }}
         <br>
         {{ user.location }}
-    {% if user_messages %}
-    {% for message in user_messages %}
-
-        {{ message.content }}
-    {% endfor %}
-    {% endif %}
+        <br>
     {% else %}
         not here
     {% endif %}

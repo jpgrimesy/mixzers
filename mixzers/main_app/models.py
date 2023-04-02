@@ -19,11 +19,10 @@ class Mixzer(models.Model):
 class Message(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField(max_length=250)
-    sender = models.ForeignKey(
-        Mixzer, on_delete=models.CASCADE, related_name='sent_messages')
-    recipient = models.ForeignKey(
-        Mixzer, on_delete=models.CASCADE, related_name='received_messages')
-    created_on = models.DateTimeField(auto_now_add=True)
+    sender_id = models.ForeignKey(
+        Mixzer, on_delete=models.CASCADE, related_name='sender')
+    recipient_id = models.ForeignKey(
+        Mixzer, on_delete=models.CASCADE, related_name='recipient')
 
 
 # REVIEW MODEL
