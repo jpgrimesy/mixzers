@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Mixzer(models.Model):
@@ -18,20 +19,24 @@ class Mixzer(models.Model):
 class Message(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField(max_length=250)
-    sender_id = models.ForeignKey(
-        Mixzer, on_delete=models.CASCADE, related_name='sender')
-    recipient_id = models.ForeignKey(
-        Mixzer, on_delete=models.CASCADE, related_name='recipient')
+    sender = models.ForeignKey(
+        Mixzer, on_delete=models.CASCADE, related_name='sent_messages')
+    recipient = models.ForeignKey(
+        Mixzer, on_delete=models.CASCADE, related_name='received_messages')
+    created_on = models.DateTimeField(auto_now_add=True)
 
 
 # REVIEW MODEL
 class Review(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField(max_length=250)
-    reviewer_id = models.ForeignKey(
+    rating = models.PositiveIntegerField(
+        default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
+    reviewer = models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='reviewer')
-    reviewee_id = models.ForeignKey(
+    reviewee = models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='reviewee')
+    created_on = models.DateTimeField(auto_now_add=True)
 
 
 # JOB POST MODEL
