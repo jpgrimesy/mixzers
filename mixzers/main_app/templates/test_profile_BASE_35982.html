@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,17 +26,6 @@
         {{ user.location }}
         <br>
 
-<<<<<<< HEAD
-        {% if messages %}
-        {% for message in messages %}
-
-            {{ message }}
-        {% endfor %}
-        {% endif %}
-        {% else %}
-            not here
-        {% endif %}
-=======
         {{ message.content }}
     {% endfor %}
     {% endif %}
@@ -44,7 +33,6 @@
     {% else %}
         not here
     {% endif %}
->>>>>>> 2efb581 (about template update)
     <a href="{% url 'verify' %}">verify</a>
 </body>
 </html>
