@@ -25,10 +25,7 @@
         {{ error_message }}
         <br>
         {{ user.location }}
-    {% endif %}
 
-    {% if user_messages %}
-    {% for message in user_messages %}
         {{ message.content }}
     {% endfor %}
     {% endif %}
@@ -36,7 +33,6 @@
     {% else %}
         not here
     {% endif %}
-
     <a href="{% url 'verify' %}">verify</a>
 </body>
 </html>
