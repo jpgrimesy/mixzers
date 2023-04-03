@@ -45,9 +45,9 @@ class Review(models.Model):
 class Job_Post(models.Model):
     title = models.CharField(max_length=250)
     job_description = models.TextField(max_length=250)
-    location = models.CharField(max_length=250)
     job_type = models.CharField(max_length=250)
     salary = models.CharField(max_length=250)
     schedule = models.CharField(max_length=250)
-    students = models.ManyToManyField(Mixzer)
-    candidates = models.CharField(max_length=3)
+    applicants = models.ManyToManyField(Mixzer, related_name='applicants')
+    candidates = models.ManyToManyField(Mixzer, related_name='candidates')
+    author = models.ForeignKey(Mixzer, on_delete=models.CASCADE, related_name='author')

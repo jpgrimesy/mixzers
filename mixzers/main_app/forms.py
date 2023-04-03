@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Mixzer, Message, Review
+from .models import Mixzer, Message, Review, Job_Post
 from django.contrib.auth.models import User
 
 class UserForm(ModelForm):
@@ -24,3 +24,9 @@ class ReviewForm(ModelForm):
     class Meta:
         model = Review
         fields = ['title', 'rating', 'content' ]
+
+
+class JobPostForm(ModelForm):
+    class Meta:
+        model = Job_Post
+        fields = ['title', 'job_description', 'job_type', 'salary', 'schedule']
