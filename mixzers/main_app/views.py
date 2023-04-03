@@ -4,8 +4,8 @@ from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm
-from .models import Mixzer, Message, Review
+from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm, JobPostForm
+from .models import Mixzer, Message, Review, Job_Post
 from django.views.generic.edit import CreateView
 # Create your views here.
 
@@ -13,17 +13,10 @@ from django.views.generic.edit import CreateView
 def home(request):
     return render(request, 'home.html')
 
+
 # ABOUT PAGE    
 def about(request):
     return render(request, 'about.html')
-
-# POST A JOB PAGE
-def job_post(request):
-    return render(request, 'jobpost.html')
-
-# NEAR JOB PAGE
-def near_job(request):
-    return render(request, 'nearjob.html')
     
 
 # SIGNUP PAGE, STILL NEED TO FIX THE REDIRECTS 
@@ -118,3 +111,39 @@ def create_review(request, user_id):
      'form': form
   })
   
+
+@login_required
+def post_job(request):
+  author = Mixzer.objects.get(user=request.user)
+  if request.method == 'POST':
+    form = JobPostForm(request.POST)
+    if form.is_valid():
+      post = form.save(commit=False)
+      post.author = author
+      post.save()
+      return redirect('nearby_jobs')
+  form = JobPostForm()
+  return render(request, 'jobpost.html', {
+    'form': form
+  })
+
+@login_required
+def nearby_jobs(request):
+  jobs = Job_Post.objects.all()
+  return render(request, 'nearjob.html', {
+    'jobs': jobs
+  })
+
+
+@login_required
+def apply(request, job_id):
+  user = Mixzer.objects.get(user=request.user)
+  Job_Post.objects.get(id=job_id).applicants.add(user.id)
+  return redirect('nearby_jobs')
+
+
+@login_required
+def hire(request, job_id):
+  user = Mixzer.objects.get(user=request.user)
+  Job_Post.objects.get(id=job_id).candidates.add(user.id)
+  return redirect('nearby_jobs')
