@@ -495,3 +495,59 @@ background-color: #000000
 .documenter{
     padding-left: 1rem;
 }
+
+
+/******************** LOGIN ********************/
+.divlogins{
+
+    height: 30rem;
+    width: 30rem;
+    margin-top: 3rem;
+    margin-left: -20rem;
+    margin-top: -2rem;
+}
+.login-div{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+.login-image{
+    height: 46rem;
+    width: 40rem;
+    margin-left: -16rem;
+    margin-top: -1rem;
+}
+.login-mixzer{
+    font-size: 7rem;
+    margin-left: 10rem;
+
+}
+.login-name{
+    text-align: center;
+    margin-left: 15rem;
+    margin-bottom: 1rem;
+    margin-top: -3rem
+}
+.btn{
+    font-size: 1rem;
+    height: 2.5rem;
+    width: 7rem;
+    background-color: gray;
+    color:white;
+    outline: none;
+    border: 0;
+    margin-left: 4rem;
+}
+.login-sign{
+    color: black;
+    margin-top: -4rem;
+    margin-left: 5rem;
+    text-decoration-line: underline;
+}
+form{
+    margin-left: 12rem;
+    margin-top: 2rem;
+}
+.login-account{
+    margin-left: 3rem;
+}
