@@ -23,6 +23,7 @@ class Message(models.Model):
         Mixzer, on_delete=models.CASCADE, related_name='sender')
     recipient_id = models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='recipient')
+    created_on = models.DateTimeField(auto_now_add=True)
 
 # REVIEW MODEL
 
@@ -42,11 +43,7 @@ class Review(models.Model):
 
     rating = models.PositiveIntegerField(
         default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
-    # created_on = models.DateTimeField(auto_now_add=True)
-    # reviewer_id = models.ForeignKey(
-    #     Mixzer, on_delete=models.CASCADE, related_name='reviewer')
-    # reviewee_id = models.ForeignKey(
-    #     Mixzer, on_delete=models.CASCADE, related_name='reviewee')
+
 
 # JOB POST MODEL
 
@@ -59,3 +56,4 @@ class Job_Post(models.Model):
     salary = models.CharField(max_length=250)
     schedule = models.CharField(max_length=250)
     students = models.ManyToManyField(Mixzer)
+    candidates = models.CharField(max_length=3)
