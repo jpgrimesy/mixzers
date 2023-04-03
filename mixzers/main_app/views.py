@@ -4,8 +4,9 @@ from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserForm, AddExtraUserCreationForm
+from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm
 from .models import Mixzer, Message, Review
+from django.views.generic.edit import CreateView
 # Create your views here.
 
 # HOME PAGE
@@ -43,7 +44,7 @@ def signup(request):
       addtl_user.user = user
       addtl_user.save()
       login(request, user)
-      return redirect('/admin/')
+      return redirect('/profile/')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
@@ -58,10 +59,11 @@ def signup(request):
 def profile(request):
   user = Mixzer.objects.get(user=request.user)
   user_messages = Message.objects.filter(recipient=user)
-
+  reviews = Review.objects.filter(reviewee=user)
   return render(request, 'test_profile.html', {
     'user': user,
-    'user_messages': user_messages
+    'user_messages': user_messages,
+    'reviews': reviews
   })
   
 
@@ -79,3 +81,40 @@ def verify(request):
     messages.error(request, error_message)
 
   return redirect('profile')
+
+
+@login_required
+def send_message(request, user_id):
+  sender = Mixzer.objects.get(user=request.user)
+  recipient = Mixzer.objects.get(id=user_id)
+  if request.method == 'POST':
+    form = MessageForm(request.POST)
+    if form.is_valid():
+      message = form.save(commit=False)
+      message.sender = sender
+      message.recipient = recipient
+      message.save()
+      return redirect('profile')
+  form = MessageForm()
+  return render(request, 'main_app/message_form.html', {
+     'form': form
+  })
+
+
+@login_required
+def create_review(request, user_id):
+  reviewer = Mixzer.objects.get(user=request.user)
+  reviewee = Mixzer.objects.get(id=user_id)
+  if request.method == 'POST':
+    form = ReviewForm(request.POST)
+    if form.is_valid():
+      review = form.save(commit=False)
+      review.reviewer = reviewer
+      review.reviewee = reviewee
+      review.save()
+      return redirect('profile')
+  form = ReviewForm()
+  return render(request, 'main_app/message_form.html', {
+     'form': form
+  })
+  

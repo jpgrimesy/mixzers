@@ -30,13 +30,21 @@
     {% if user_messages %}
     {% for message in user_messages %}
         {{ message.content }}
+        {{ message.sender.user.username }}
     {% endfor %}
+    
+
     {% endif %}
         <br>
     {% else %}
         not here
     {% endif %}
-
-    <a href="{% url 'verify' %}">verify</a>
+    <a href="{% url 'verify' %}">verify</a><br />
+    {% if reviews %}
+        {% for review in reviews %}
+            {{ review.rating }}
+            {{ review.content }}
+        {% endfor %}
+    {% endif %}
 </body>
 </html>
