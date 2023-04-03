@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<!--- CONTENT GOES HERE -->
+{% for job in jobs %}
+    <p>{{ job.title }}</p>
+    <p>{{ job.schedule }}</p>
+    <p>{{ job.applicants.all }}</p>
+    <p>{{ job.author.user.username }}</p>
+    {% if job.applicants.all %}
+    {% for applicant in job.applicants.all %}
+    <p>{{ applicant.user.username }}</p>
+    {% endfor %}
+    {% else %}
+    <p>No applicants</p>
+    {% endif %}
+    {% if job.candidates.all %}
+    {% for candidate in job.candidates.all %}
+    <p>{{ candidate.user.username }}</p>
+    {% endfor %}
+    {% else %}
+    <p>No candidates</p>
+    {% endif %}
+    <a href="{% url 'apply' job.id %}">Apply</a>
+    <a href="{% url 'hire' job.id %}">hire</a>
+
+{% endfor %}
+
+
+{% endblock %}
