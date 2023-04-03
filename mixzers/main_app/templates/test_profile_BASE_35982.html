@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,6 @@
 <body>
     {% if messages %}
         {% for message in messages %}
-      
         {{ message }}
         {% endfor %}
     {% endif %}
@@ -25,26 +24,15 @@
         {{ error_message }}
         <br>
         {{ user.location }}
-    {% endif %}
+        <br>
 
-    {% if user_messages %}
-    {% for message in user_messages %}
         {{ message.content }}
-        {{ message.sender.user.username }}
     {% endfor %}
-    
-
     {% endif %}
         <br>
     {% else %}
         not here
     {% endif %}
-    <a href="{% url 'verify' %}">verify</a><br />
-    {% if reviews %}
-        {% for review in reviews %}
-            {{ review.rating }}
-            {{ review.content }}
-        {% endfor %}
-    {% endif %}
+    <a href="{% url 'verify' %}">verify</a>
 </body>
 </html>
