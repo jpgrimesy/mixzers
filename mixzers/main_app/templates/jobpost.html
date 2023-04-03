@@ -1,9 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<h1>Add a Job Post</h1>
+<hr>
+<form method="POST" action="{% url 'jobpost' %}">
+  {% csrf_token %}
+  {{ form.as_table }}
+    <tr>
+      <td><label for="job_type">Job Type:</label></td>
+      <input type="text" name="job_type" id="job_type" value="{{ job_type }}">
+      <br>
+      <td><label for="location">Location:</label></td>
+        <input type="text" name="location" id="location" value="{{ location }}">
+      <br>
+      <td><label for="job_description">Job Description:</label></td>
+        <input type="text" name="job_description" id="job_description" value="{{ job_description }}">
+      <br>
+      <td><label for="salary">Pay:</label></td>
+        <input type="text" name="salary" id="salary" value="{{ salary }}">
+      <br>
+      <td><label for="schedule">When and for how long:</label></td>
+        <input type="text" name="schedule" id="schedule" value="{{ schedule }}">
+      <br>
+      <td><label for="candidates">How many workers do you need:</label></td>
+        <input type="text" name="candidates" id="candidates" value="{{ candidates }}">
+      <br>
+    
+    </tr>
 
-<h1>{{ title }}</h1> 
+  <input type="submit" class="btn" value="Submit">
 
+</form>
 <h2>{{ job_type }} - {{ location }}</h2>
 <h3>{{ job_description }}</h3>
 <h3>{{ salary }}</h3>
