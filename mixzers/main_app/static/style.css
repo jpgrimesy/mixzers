@@ -1,4 +1,3 @@
-
 body::-webkit-scrollbar{
     display: none;
 }
@@ -13,7 +12,7 @@ header{
 }
 footer{
     text-align: center;
-    background-color: #052C34;
+    background-color: #000000;
     color: white;
     height: 5rem;
     margin: -1rem;
@@ -33,7 +32,6 @@ a{
     padding-right: 2rem;
     text-decoration: none;
     padding-left: 1rem;
-
 }
 ul{
     list-style: none;
@@ -195,4 +193,65 @@ p{
     width: 100%;
     height : 100%;
     object-fit: contain;
+}
+
+/** ABOUT SECTION **/
+.one{
+background-image: linear-gradient(90deg, rgb(91, 236, 246), rgb(79, 70, 229));
+height: 25rem;
+margin-top: -5.3rem;
+margin-left: -0.5rem;
+margin-right: -0.5rem;
+padding-bottom: 8rem;
+color: white;
+}
+.about-title{
+    padding-top: 7rem;
+    font-size: 75px;
+    text-align: center;
+}
+.about{
+    font-size: 35px;
+    text-align: center;
+    color: black;
+    display: flex;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    justify-content: center;
+}
+.two{
+    color: white;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    margin-top: -1.1rem;
+    height: 30rem;
+  background-color: #000000;
+
+ 
+}
+.about-mission{
+    font-size: 75px;
+    text-align: center;
+    padding-top: 6rem;
+}
+.mission{
+    font-size: 35px;
+    text-align: center;
+}
+.three{
+    height: 30rem;
+    background-image: linear-gradient(90deg, rgb(91, 236, 246), rgb(79, 70, 229));
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+.about-team{
+    padding-top: 5rem;
+    font-size: 75px;
+    text-align: center;
+    margin-right: -0.5rem;
+    margin-left: -0.5rem;
+}
+.team{
+    font-size: 35px;
+    text-align: center;
 }
