@@ -29,7 +29,6 @@ a{
     display: flex;
     flex-direction: row; 
     justify-content: space-between;
-
     padding-top: 1rem;
 
     padding-top: 3rem;
@@ -199,9 +198,6 @@ p{
     height : 100%;
     object-fit: contain;
 }
-
-
-
 /** BRAND **/
 .MixZers{
     text-align: center;

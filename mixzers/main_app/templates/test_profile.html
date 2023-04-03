@@ -25,10 +25,10 @@
         {{ error_message }}
         <br>
         {{ user.location }}
-
-    {% else %}
-        not here
     {% endif %}
+
+    {% if user_messages %}
+    {% for message in user_messages %}
         {{ message.content }}
     {% endfor %}
     {% endif %}
