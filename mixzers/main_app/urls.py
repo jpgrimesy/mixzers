@@ -4,10 +4,9 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
-
     # path to the self-reflection profile
     path('profile/', views.profile, name='profile'),
-    
+
     # path to account profile. we need to make a test
     # page of all the information for others to view the specifc user
 
