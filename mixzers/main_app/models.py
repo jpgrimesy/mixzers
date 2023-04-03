@@ -11,6 +11,9 @@ class Mixzer(models.Model):
     college = models.CharField(max_length=100, blank=True)
     phone_number = models.CharField(max_length=18, blank=True)
 
+    def __absolute_url__(self):
+        return reverse('profile', kwargs={'pk': self.pk})
+
     def verify_student(self):
         return self.user.email.endswith('.edu')
 
@@ -23,7 +26,7 @@ class Message(models.Model):
     content = models.TextField(max_length=250)
     sender = models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='sender')
-    recipient= models.ForeignKey(
+    recipient = models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='recipient')
     created_on = models.DateTimeField(auto_now_add=True)
 
