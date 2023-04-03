@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Mixzer, Message
+from .models import Mixzer, Message, Review
 from django.contrib.auth.models import User
 
 class UserForm(ModelForm):
@@ -18,3 +18,9 @@ class MessageForm(ModelForm):
     class Meta:
         model = Message
         fields = ['title', 'content']
+
+
+class ReviewForm(ModelForm):
+    class Meta:
+        model = Review
+        fields = ['title', 'rating', 'content' ]
