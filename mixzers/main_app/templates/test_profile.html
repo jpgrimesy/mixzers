@@ -25,16 +25,15 @@
         {{ error_message }}
         <br>
         {{ user.location }}
-    {% endif %}
+
 
     {% if user_messages %}
     {% for message in user_messages %}
-        {{ message.content }}
-        {{ message.sender.user.username }}
-    {% endfor %}
-    
 
+        {{ message.content }}
+    {% endfor %}
     {% endif %}
+
     
     <a href="{% url 'verify' %}">verify</a><br />
     {% if reviews %}
@@ -43,5 +42,6 @@
             {{ review.content }}
         {% endfor %}
     {% endif %}
+
 </body>
 </html>

@@ -39,7 +39,6 @@ class Review(models.Model):
         Mixzer, on_delete=models.CASCADE, related_name='reviewee')
     created_on = models.DateTimeField(auto_now_add=True)
 
-
 # JOB POST MODEL
 
 
@@ -51,3 +50,4 @@ class Job_Post(models.Model):
     salary = models.CharField(max_length=250)
     schedule = models.CharField(max_length=250)
     students = models.ManyToManyField(Mixzer)
+    candidates = models.CharField(max_length=3)
