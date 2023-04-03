@@ -19,9 +19,9 @@ class Mixzer(models.Model):
 class Message(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField(max_length=250)
-    sender_id = models.ForeignKey(
+    sender = models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='sender')
-    recipient_id = models.ForeignKey(
+    recipient= models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='recipient')
     created_on = models.DateTimeField(auto_now_add=True)
 
@@ -31,19 +31,13 @@ class Message(models.Model):
 class Review(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField(max_length=250)
-
     rating = models.PositiveIntegerField(
         default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
-
-    reviewer_id = models.ForeignKey(
+    reviewer = models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='reviewer')
     reviewee = models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='reviewee')
     created_on = models.DateTimeField(auto_now_add=True)
-
-    rating = models.PositiveIntegerField(
-        default=0, validators=[MinValueValidator(0), MaxValueValidator(5)])
-
 
 # JOB POST MODEL
 
