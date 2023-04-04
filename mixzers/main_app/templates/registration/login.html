@@ -1,22 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Log In</h1>
-<form method="POST" action="{% url 'login' %}">
+<container class="login-div">
+    <img class="login-image" src="https://images.unsplash.com/photo-1639503667014-6533f3f34831?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80">
+<container class="divlogins">
+    <h1 class="login-mixzer">MixZer</h1>
+<br>
+<h3 class="login-name">Welcome Back!</h3>
+    <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="hidden" name="next" value="{{ next }}">
     <button type="submit" class="btn">Log In</button>
+    <div class="login-account">
+    <h4>Don't Have An Account?</h4>
+    <a href="http://localhost:8000/signup/"><h4 class="login-sign">Sign Up</h4></a>
+    </div>
   </form>
-</body>
-</html>
+</container>
+</div>
+<!-- <br>
+<br>
+<br>
+<br> -->
 {% endblock %}
