@@ -13,11 +13,16 @@
     <header>
         <nav>
             <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'profile' %}">Your Profile</a></li>
                 <li><a href="{% url 'post_job' %}">Post A Job</a></li>
                 <li><a href="{% url 'nearby_jobs' %}" class="nearjob">Jobs Near You</a></li>
-                <li><a href="{% url 'login' %}" class='login'>Log In</a></li> <!--WAIT FOR AUTHENTICATION-->
-                <li><a href="{% url 'logout' %}" class='login'>Log out</a></li> <!--WAIT FOR AUTHENTICATION-->
+                <li><a href="{% url 'logout' %}" class='login'>Log out</a></li> 
+                {% else %}
+                <li><a href="{% url 'login' %}" class='login'>Log In</a></li> 
+                {% endif %}
             </ul>
         </nav>
     </header>
