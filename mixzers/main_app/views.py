@@ -4,11 +4,9 @@ from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm, JobPostForm
 from .models import Mixzer, Message, Review, Job_Post
-from django.views.generic import DetailView
-
+from django.views.generic.edit import UpdateView, DeleteView
 # Create your views here.
 
 # HOME PAGE
@@ -129,7 +127,6 @@ def post_job(request):
     'form': form
   })
 
-
 @login_required
 def nearby_jobs(request):
   jobs = Job_Post.objects.all()
@@ -151,6 +148,22 @@ def hire(request, job_id):
   Job_Post.objects.get(id=job_id).candidates.add(user.id)
   return redirect('nearby_jobs')
 
+# JOB POST UPDATE VIEW
+class PostJobUpdate(UpdateView):
+  model = Job_Post
+  fields = '__all__'
 
-class MixzerDetail(LoginRequiredMixin, DetailView):
-  model = Mixzer
+# JOB POST DELETE VIEW
+class PostJobDelete(DeleteView):
+  model = Job_Post
+  success_url = '/post-job'
+
+# PROFILE UPDATE VIEW
+class ProfileUpdate(UpdateView):
+    model = Mixzer
+    fields = ['location', 'is_student', 'college', 'phone_number']
+
+# PROFILE DELETE VIEW
+class ProfileDelete(DeleteView):
+  model=Mixzer
+  success_url='profile/'
