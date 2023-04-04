@@ -14,8 +14,10 @@ class Mixzer(models.Model):
     def verify_student(self):
         return self.user.email.endswith('.edu')
 
+    def get_absolute_url(self):
+        return reverse('mixzer_detail', kwargs={'pk': self.id})
 
-# MESSAGE MODEL
+
 class Message(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField(max_length=250)
@@ -24,8 +26,6 @@ class Message(models.Model):
     recipient= models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='recipient')
     created_on = models.DateTimeField(auto_now_add=True)
-
-# REVIEW MODEL
 
 
 class Review(models.Model):
@@ -38,8 +38,6 @@ class Review(models.Model):
     reviewee = models.ForeignKey(
         Mixzer, on_delete=models.CASCADE, related_name='reviewee')
     created_on = models.DateTimeField(auto_now_add=True)
-
-# JOB POST MODEL
 
 
 class Job_Post(models.Model):

@@ -4,9 +4,11 @@ from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm, JobPostForm
 from .models import Mixzer, Message, Review, Job_Post
-from django.views.generic.edit import CreateView
+from django.views.generic import DetailView
+
 # Create your views here.
 
 # HOME PAGE
@@ -127,6 +129,7 @@ def post_job(request):
     'form': form
   })
 
+
 @login_required
 def nearby_jobs(request):
   jobs = Job_Post.objects.all()
@@ -147,3 +150,7 @@ def hire(request, job_id):
   user = Mixzer.objects.get(user=request.user)
   Job_Post.objects.get(id=job_id).candidates.add(user.id)
   return redirect('nearby_jobs')
+
+
+class MixzerDetail(LoginRequiredMixin, DetailView):
+  model = Mixzer
