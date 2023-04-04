@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
     {% if messages %}
         {% for message in messages %}
       
@@ -14,17 +7,17 @@
         {% endfor %}
     {% endif %}
     {% if user %}
-        {{ user.user.username }}
+        {{ abc.user.username }}
         <br>
-        {{ user.location }}
+        {{ abc.location }}
         <br>
-        {{ user.user.email }}
+        {{ abc.user.email }}
         <br>
-        {{ user.is_student }}
+        {{ abc.is_student }}
         <br>
         {{ error_message }}
         <br>
-        {{ user.location }}
+        {{ abc.location }}
     {% endif %}
 
     {% if user_messages %}
@@ -42,6 +35,4 @@
             {{ review.content }}
         {% endfor %}
     {% endif %}
-
-</body>
-</html>
+{% endblock %}
