@@ -18,4 +18,5 @@ urlpatterns = [
     path('nearby-jobs/', views.nearby_jobs, name='nearby_jobs'),
     path('apply/<int:job_id>/', views.apply, name='apply'),
     path('hire/<int:job_id>/', views.hire, name='hire'),
+    path('mixzer/<int:pk>/', views.MixzerDetail.as_view(), name='mixzer_detail'),
 ]

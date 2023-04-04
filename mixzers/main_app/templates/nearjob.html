@@ -8,7 +8,7 @@
     <p>{{ job.title }}</p>
     <p>{{ job.schedule }}</p>
     <p>{{ job.applicants.all }}</p>
-    <p>{{ job.author.user.username }}</p>
+    <p><a href="{% url 'mixzer_detail' job.author.user.id %}">{{ job.author.user.username }}</a></p>
     {% if job.applicants.all %}
     {% for applicant in job.applicants.all %}
     <p>{{ applicant.user.username }}</p>
