@@ -8,8 +8,8 @@
 <br>
 <h3 class="login-name">Welcome Back!</h3>
     <form method="POST" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
+        {% csrf_token %}
+        {{ form.as_p }}
     <input type="hidden" name="next" value="{{ next }}">
     <button type="submit" class="btn">Log In</button>
     <div class="login-account">
