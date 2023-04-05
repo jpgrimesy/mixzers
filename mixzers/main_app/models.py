@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.gis.db import models
 from django.contrib.postgres.operations import CreateExtension
-from django.db import migrations
 
 
 class Mixzer(models.Model):
