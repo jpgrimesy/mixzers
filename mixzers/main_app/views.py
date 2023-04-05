@@ -139,12 +139,9 @@ def post_job(request):
       post.author = author
       post.save()
       location = author.location
-      print(location)
       coordinates = get_coordinates(location)
-      print(coordinates)
       job_point = JobPoint(job_post=post, location=Point(coordinates))
       job_point.save()
-      print(job_point.location.y)
       return redirect('nearby_jobs')
   form = JobPostForm()
   return render(request, 'jobpost.html', {
