@@ -1,47 +1,139 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Document</title>
+
 </head>
-<body>
-    {% if messages %}
-        {% for message in messages %}
-      
-        {{ message }}
-        {% endfor %}
-    {% endif %}
-    {% if user %}
-        {{ user.user.username }}
-        <br>
-        {{ user.location }}
-        <br>
-        {{ user.user.email }}
-        <br>
-        {{ user.is_student }}
-        <br>
-        {{ error_message }}
-        <br>
-        {{ user.location }}
-    {% endif %}
+<body id="profile-test">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'profile' %}">Your Profile</a></li>
+                <li><a href="{% url 'post_job' %}">Post A Job</a></li>
+                <li><a href="{% url 'nearby_jobs' %}" class="nearjob">Jobs Near You</a></li>
+                <li><a href="{% url 'logout' %}" class='login'>Log out</a></li> 
+                {% else %}
+                <li><a href="{% url 'login' %}" class='login'>Log In</a></li> 
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <div id="profile-page-split">
+        <div class="col-sm-8">
+            <section class="upper row">
+                <div class="left col-sm-8">
+                    <!-- <div class="middle">
+                        <div class="inner"> -->
+                    {% if user %}
+                        <span class="profile-text" id="profile-username">{{ abc.user.username }}</span>
+                        
+                        <img src="https://i.ibb.co/yQ8pNsf/screenshot-2023-03-28-at-2-02-45-pm-720.png" alt="" class="user-img">
 
-    {% if user_messages %}
-    {% for message in user_messages %}
+                        <br>
+                        <span class="profile-text" id="profile-location">{{ abc.location }}</span>
+                        <br>
+                        <span class="profile-text" id="profile-email">{{ abc.user.email }}</span>
+                        <br>
+                        <span class="profile-text" id="profile-student">
+                            {% if abc.is_student %}
+                                Student
+                            {% else %}
+                                Not Verified as Student
+                            {% endif %}
+                        </span>
+                        <br>
 
-        {{ message.content }}
-    {% endfor %}
-    {% endif %}
+                        {{ error_message }}
+                        <br>
+                    {% endif %}
+                        <!-- </div>
+                    </div> -->
+                </div>
 
-    
+                <div class="middle col-sm-8">
+
+                    {% if user_messages %}
+                    {% for message in user_messages %}
+                        {{ message.content }}
+                    {% endfor %}
+                    {% else %}
+                        No Messages Yet
+                    {% endif %}
+                </div>
+
+                <div class="right col-sm-8">
+                    <span>
+                        {% if reviews %}
+                        {% for review in reviews %}
+                            {{ review.rating }}
+                            {{ review.content }}
+                        {% endfor %}
+                        {% else %}
+                            No Reviews Yet
+                        {% endif %}
+                    </span>
+
+                </div>
+                <div class="row col-sm-12">                
+
+                    <button type="submit" class="btn col-sm-4 btn-primary" id="profile-btn">Edit Account</button>
+                    <button type="submit" class="btn col-sm-4 btn-primary" id="profile-btn">Delete Account</button> 
+
+                   
+                </div>
+                
+            </section>
+        </div>
+
+        <div class="middle render-jobs col-sm-4">
+            <div class="col-sm-12">
+                <h1 class="jobsposted">Jobs Posted</h1>
+                <br>
+                <!-- this conditional rendering statment needs to be adjusted -->
+                {% if jobs %}
+                    <!-- {{ Job_Post }} -->
+                    {% for job in jobs%}
+                    <p class="job_title"><strong>Title: </strong>{{ job.title }} </p>
+                    <p class="jobtype"><strong>Job Type:</strong>{{job.job_type}}</p>
+                    <a class='edittag' href="{% url 'post_job_update' job.id %}"><button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Edit Job</button></a>
+                    <a class='deletetag' href="{% url 'post_job_delete' job.id %}"><button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Delete Job</button></a>
+                    <br>
+                    <br>
+
+                    {% endfor %}
+                    
+               
+                {% else %}
+                    No Jobs Posted Yet
+                {% endif %}
+
+            </div>
+            <!-- <button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Edit Jobs</button> -->
+
+
+
+        </div>
+
+    </div>
     <a href="{% url 'verify' %}">verify</a><br />
-    {% if reviews %}
-        {% for review in reviews %}
-            {{ review.rating }}
-            {{ review.content }}
-        {% endfor %}
-    {% endif %}
+    
+
+    <footer>
+        <div class="rights">All Rights Reserved &copy; 2023 MixZers &nbsp;</div>
+    </footer>
 
 </body>
 </html>
