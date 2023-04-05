@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
 ]
 
 MIDDLEWARE = [
@@ -82,8 +83,8 @@ WSGI_APPLICATION = 'mixzers.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mix_test',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'mixzers',
     }
 }
 
@@ -131,3 +132,6 @@ LOGOUT_RIDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GDAL_LIBRARY_PATH = '/Applications/Postgres.app/Contents/Versions/15/lib/libgdal.dylib'
+GEOS_LIBRARY_PATH = '/Applications/Postgres.app/Contents/Versions/15/lib/libgeos_c.dylib'
