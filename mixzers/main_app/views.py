@@ -4,10 +4,10 @@ from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm, JobPostForm
 from .models import Mixzer, Message, Review, Job_Post
-from django.views.generic import DetailView, DeleteView, UpdateView
+from django.views.generic import DetailView
+from django.views.generic.edit import UpdateView, DeleteView
 
 # Create your views here.
 
@@ -132,7 +132,6 @@ def post_job(request):
         'form': form
     })
 
-
 @login_required
 def nearby_jobs(request):
     jobs = Job_Post.objects.all()
@@ -159,14 +158,26 @@ class MixzerDetail(LoginRequiredMixin, DetailView):
     model = Mixzer
 
 
-# these may or may not have been created by Mel
-# class ProfileUpdate(LoginRequiredMixin, UpdateView):
-#     model = Mixzer
-#     # not sure about these fields but we'll see
-#     fields = ['email', 'first_name', 'last_name', 'username' 'location']
-#     success_url = '/profile/'
+# JOB POST UPDATE VIEW
+class PostJobUpdate(LoginRequiredMixin, UpdateView):
+  model = Job_Post
+  fields = '__all__'
 
 
-# class ProfileDelete(LoginRequiredMixin, DeleteView):
-#     model = Mixzer
-#     success_url = '/'
+# JOB POST DELETE VIEW
+class PostJobDelete(LoginRequiredMixin, DeleteView):
+  model = Job_Post
+  success_url = '/profile/'
+
+
+# PROFILE UPDATE VIEW
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
+    model = Mixzer
+    fields = ['location', 'is_student', 'college', 'phone_number']
+
+
+# PROFILE DELETE VIEW
+class ProfileDelete(LoginRequiredMixin, DeleteView):
+  model=Mixzer
+  success_url='/'
+
