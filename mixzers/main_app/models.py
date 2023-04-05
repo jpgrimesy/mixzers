@@ -51,4 +51,5 @@ class Job_Post(models.Model):
     schedule = models.CharField(max_length=250)
     applicants = models.ManyToManyField(Mixzer, related_name='applicants')
     candidates = models.ManyToManyField(Mixzer, related_name='candidates')
-    author = models.ForeignKey(Mixzer, on_delete=models.CASCADE, related_name='author')
+    author = models.ForeignKey(
+        Mixzer, on_delete=models.CASCADE, related_name='author')

@@ -1,18 +1,20 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.urls import reverse
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm, JobPostForm
 from .models import Mixzer, Message, Review, Job_Post
 from django.views.generic import DetailView
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.edit import DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
-# HOME PAGE  
+# HOME PAGE
+
+
 def home(request):
     return render(request, 'home.html')
 
@@ -57,10 +59,12 @@ def profile(request):
     user = Mixzer.objects.get(user=request.user)
     user_messages = Message.objects.filter(recipient=user)
     reviews = Review.objects.filter(reviewee=user)
+    jobs = Job_Post.objects.filter(author=user)
     return render(request, 'test_profile.html', {
         'abc': user,
         'user_messages': user_messages,
-        'reviews': reviews
+        'reviews': reviews,
+        'jobs': jobs
     })
 
 
@@ -125,11 +129,12 @@ def post_job(request):
             post = form.save(commit=False)
             post.author = author
             post.save()
-            return redirect('nearby_jobs')
+            return redirect('profile')
     form = JobPostForm()
     return render(request, 'jobpost.html', {
         'form': form
     })
+
 
 @login_required
 def nearby_jobs(request):
@@ -159,14 +164,14 @@ class MixzerDetail(LoginRequiredMixin, DetailView):
 
 # JOB POST UPDATE VIEW
 class PostJobUpdate(LoginRequiredMixin, UpdateView):
-  model = Job_Post
-  fields = '__all__'
+    model = Job_Post
+    fields = '__all__'
 
 
 # JOB POST DELETE VIEW
 class PostJobDelete(LoginRequiredMixin, DeleteView):
-  model = Job_Post
-  success_url = '/profile/'
+    model = Job_Post
+    success_url = '/profile/'
 
 
 # PROFILE UPDATE VIEW
@@ -177,6 +182,41 @@ class ProfileUpdate(LoginRequiredMixin, UpdateView):
 
 # PROFILE DELETE VIEW
 class ProfileDelete(LoginRequiredMixin, DeleteView):
-  model=Mixzer
-  success_url='/'
+    model = Mixzer
+    success_url = '/'
 
+
+@login_required
+def update_profile(request):
+    error_message = ''
+    if request.method == 'POST':
+        # form = UserCreationForm(request.POST)
+        add_form = AddExtraUserCreationForm(
+            request.POST)
+        # addtl_form = UserForm(request.POST)
+        if add_form.is_valid():
+            # user = form.save()
+            add_user = add_form.save(commit=False)
+            add_user.email = add_user.email
+            add_user.first_name = add_user.first_name
+            add_user.last_name = add_user.last_name
+            # form.save()
+            # addtl_user = addtl_form.save(commit=False)
+            # addtl_user.location = addtl_user.location
+            # addtl_user.phone_number = addtl_user.phone_number
+            # addtl_user.save()
+            # login(request, user)
+            add_form.save()
+            # addtl_form.save()
+            return redirect('/profile/')
+        else:
+            error_message = 'Invalid - try again'
+
+    # form = UserForm(instance=request.user)
+    add_form = AddExtraUserCreationForm(instance=request.user)
+    # addtl_form = UserForm(instance=request.user.mixzer)
+    context = {
+        'add_form': add_form, 'error_message': error_message}
+
+    return render(request, 'mixzer_form.html', context)
+# these may or may not have been created by Mel
