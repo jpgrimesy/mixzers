@@ -2,6 +2,9 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.gis.db import models
+from django.contrib.postgres.operations import CreateExtension
+from django.db import migrations
 
 
 class Mixzer(models.Model):
@@ -49,3 +52,8 @@ class Job_Post(models.Model):
     applicants = models.ManyToManyField(Mixzer, related_name='applicants')
     candidates = models.ManyToManyField(Mixzer, related_name='candidates')
     author = models.ForeignKey(Mixzer, on_delete=models.CASCADE, related_name='author')
+
+
+class JobPoint(models.Model):
+    job_post = models.ForeignKey(Job_Post, on_delete=models.CASCADE)
+    location = models.PointField(geography=True)
