@@ -31,77 +31,94 @@
             </ul>
         </nav>
     </header>
+    <div id="profile-page-split">
+        <div class="col-sm-8">
+            <section class="upper row">
+                <div class="left col-sm-8">
+                    <!-- <div class="middle">
+                        <div class="inner"> -->
+                    {% if user %}
+                        <span class="profile-text" id="profile-username">{{ abc.user.username }}</span>
+                        
+                        <img src="https://i.ibb.co/yQ8pNsf/screenshot-2023-03-28-at-2-02-45-pm-720.png" alt="" class="user-img">
 
-    {% if messages %}
-        {% for message in messages %}
-      
-        {{ message }}
-        {% endfor %}
-    {% endif %}
+                        <br>
+                        <span class="profile-text" id="profile-location">{{ abc.location }}</span>
+                        <br>
+                        <span class="profile-text" id="profile-email">{{ abc.user.email }}</span>
+                        <br>
+                        <span class="profile-text" id="profile-student">
+                            {% if abc.is_student %}
+                                Student
+                            {% else %}
+                                Not Verified as Student
+                            {% endif %}
+                        </span>
+                        <br>
 
-    <section class="upper row">
-        <div class="left col-sm-8">
-            <!-- <div class="middle">
-                <div class="inner"> -->
-            {% if user %}
-                <span class="profile-text" id="profile-username">{{ abc.user.username }}</span>
-                
-                <img src="https://i.ibb.co/yQ8pNsf/screenshot-2023-03-28-at-2-02-45-pm-720.png" alt="" class="user-img">
-
-                <br>
-                <span class="profile-text" id="profile-location">{{ abc.location }}</span>
-                <br>
-                <span class="profile-text" id="profile-email">{{ abc.user.email }}</span>
-                <br>
-                <span class="profile-text" id="profile-student">
-                    {% if abc.is_student %}
-                        Student
-                    {% else %}
-                        Not Verified as Student
+                        {{ error_message }}
+                        <br>
                     {% endif %}
-                </span>
-                <br>
+                        <!-- </div>
+                    </div> -->
+                </div>
 
-                {{ error_message }}
-                <br>
-            {% endif %}
-                <!-- </div>
-            </div> -->
+                <div class="middle col-sm-8">
+
+                    {% if user_messages %}
+                    {% for message in user_messages %}
+                        {{ message.content }}
+                    {% endfor %}
+                    {% else %}
+                        No Messages Yet
+                    {% endif %}
+                </div>
+
+                <div class="right col-sm-8">
+                    <span>
+                        {% if reviews %}
+                        {% for review in reviews %}
+                            {{ review.rating }}
+                            {{ review.content }}
+                        {% endfor %}
+                        {% else %}
+                            No Reviews Yet
+                        {% endif %}
+                    </span>
+
+                </div>
+                <div class="row col-sm-12">                
+
+                    <button type="submit" class="btn col-sm-4 btn-primary" id="profile-btn">Edit Account</button>
+                    <button type="submit" class="btn col-sm-4 btn-primary" id="profile-btn">Delete Account</button> 
+
+                   
+                </div>
+                
+            </section>
         </div>
 
-        <div class="middle col-sm-8">
-
-            {% if user_messages %}
-            {% for message in user_messages %}
-                {{ message.content }}
-            {% endfor %}
-            {% else %}
-                No Messages Yet
-            {% endif %}
-        </div>
-
-        <div class="right col-sm-8">
-            <span>
-                {% if reviews %}
-                {% for review in reviews %}
-                    {{ review.rating }}
-                    {{ review.content }}
-                {% endfor %}
+        <div class="middle render-jobs col-sm-4">
+            <div class="col-sm-12">
+                <!-- this conditional rendering statment needs to be adjusted -->
+                {% if Job_Post %}
+                    {{ Job_Post }}
+                    
+                    <button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Edit Job</button>
+                    <button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Delete Job</button>
+                    <hr>
                 {% else %}
-                    No Reviews Yet
+                    No Jobs Posted Yet
                 {% endif %}
-            </span>
+
+            </div>
+            <!-- <button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Edit Jobs</button> -->
+
+
 
         </div>
-        <div class="row col-sm-12">
-            <button type="submit" class="btn col-sm-3 btn-primary" id="profile-btn">Edit Account</button>
-            <button type="submit" class="btn col-sm-3 btn-primary" id="profile-btn">Delete Account</button> 
-        </div>
-        
-    </section>
 
-
-    
+    </div>
     <a href="{% url 'verify' %}">verify</a><br />
     
 

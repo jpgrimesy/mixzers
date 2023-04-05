@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm, JobPostForm
 from .models import Mixzer, Message, Review, Job_Post
-from django.views.generic import DetailView
+from django.views.generic import DetailView, DeleteView, UpdateView
 
 # Create your views here.
 
@@ -157,3 +157,16 @@ def hire(request, job_id):
 
 class MixzerDetail(LoginRequiredMixin, DetailView):
     model = Mixzer
+
+
+# these may or may not have been created by Mel
+# class ProfileUpdate(LoginRequiredMixin, UpdateView):
+#     model = Mixzer
+#     # not sure about these fields but we'll see
+#     fields = ['email', 'first_name', 'last_name', 'username' 'location']
+#     success_url = '/profile/'
+
+
+# class ProfileDelete(LoginRequiredMixin, DeleteView):
+#     model = Mixzer
+#     success_url = '/'
