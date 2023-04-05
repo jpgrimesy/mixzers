@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% block content%}
+{% if object %}
+<br>
+<br>
+<br>
+  <h1 class="edit-title">Edit <span class="teal-text">{{ object.title }}</span></h1>
+{% else %}
+  <h1>Add A Job</h1>
+{% endif %}
+<container>
+<form class= 'jobupdate-form' action="" method="POST">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <input type="submit" value="Submit!" class="btn">
+</form>
+</container>
+<br>
+<br>
+<br>
+<br>
+<script>
+    let btnid = document.getElementsByClassName('btn').id = 'job_button';
+</script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="deletejob">Deleting: {{object.title}}</h1>
+
+  <h4 class="sure-delete">Are you sure you want to delete this job?</h4>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes - Delete!" class="deletebutton">
+    <!-- <input href= value="Cancel" type='submit' class="cancelbutton"> -->
+    <a class='canceltag' href="{% url 'profile' %}">Cancel</a>
+  </form>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+{% endblock %}

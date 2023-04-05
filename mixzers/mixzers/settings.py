@@ -33,7 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+'django-insecure-ppjjnjd0lwie2&wrejtzu-(6g6689xmj+(6e#-y)ebwcf^rg@f'
 # Application definition
 
 INSTALLED_APPS = [
