@@ -8,12 +8,11 @@ from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm, 
 from .models import Mixzer, Message, Review, Job_Post
 from django.views.generic import DetailView
 from django.views.generic.edit import UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
-# HOME PAGE
-
-
+# HOME PAGE  
 def home(request):
     return render(request, 'home.html')
 

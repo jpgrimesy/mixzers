@@ -100,13 +100,22 @@
 
         <div class="middle render-jobs col-sm-4">
             <div class="col-sm-12">
+                <h1 class="jobsposted">Jobs Posted</h1>
+                <br>
                 <!-- this conditional rendering statment needs to be adjusted -->
-                {% if Job_Post %}
-                    {{ Job_Post }}
+                {% if jobs %}
+                    <!-- {{ Job_Post }} -->
+                    {% for job in jobs%}
+                    <p class="job_title"><strong>Title: </strong>{{ job.title }} </p>
+                    <p class="jobtype"><strong>Job Type:</strong>{{job.job_type}}</p>
+                    <a class='edittag' href="{% url 'post_job_update' job.id %}"><button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Edit Job</button></a>
+                    <a class='deletetag' href="{% url 'post_job_delete' job.id %}"><button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Delete Job</button></a>
+                    <br>
+                    <br>
+
+                    {% endfor %}
                     
-                    <button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Edit Job</button>
-                    <button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Delete Job</button>
-                    <hr>
+               
                 {% else %}
                     No Jobs Posted Yet
                 {% endif %}
