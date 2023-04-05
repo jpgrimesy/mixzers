@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib import messages
@@ -163,9 +164,14 @@ class MixzerDetail(LoginRequiredMixin, DetailView):
 
 
 # JOB POST UPDATE VIEW
-class PostJobUpdate(LoginRequiredMixin, UpdateView):
+class PostJobUpdate(UpdateView):
     model = Job_Post
-    fields = '__all__'
+    fields = ['title', 'job_description',
+              'job_type', 'salary', 'schedule']
+    success_url = '/profile/'
+
+    def get_absolute_url(self):
+        return reverse('post_job_update', kwargs={'job_id': self.id})
 
 
 # JOB POST DELETE VIEW
@@ -182,8 +188,8 @@ class ProfileUpdate(LoginRequiredMixin, UpdateView):
 
 # PROFILE DELETE VIEW
 class ProfileDelete(LoginRequiredMixin, DeleteView):
-    model = Mixzer
-    success_url = '/'
+    model = User
+    success_url = '/users/logout/'
 
 
 @login_required
