@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
-from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm, JobPostForm
+from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm, JobPostForm, AddCollegeForm
 from .models import Mixzer, Message, Review, Job_Post, JobPoint
 from django.views.generic import DetailView
 from django.views.generic.edit import DeleteView, UpdateView
@@ -78,7 +78,7 @@ def profile(request):
     reviews = Review.objects.filter(reviewee=user)
     jobs = Job_Post.objects.filter(author=user)
     return render(request, 'test_profile.html', {
-        'abc': user,
+        'mixzer': user,
         'user_messages': user_messages,
         'reviews': reviews,
         'jobs': jobs
@@ -206,25 +206,6 @@ class PostJobDelete(LoginRequiredMixin, DeleteView):
     success_url = '/profile/'
 
 
-# PROFILE UPDATE VIEW
-class ProfileUpdate(LoginRequiredMixin, UpdateView):
-    model = Mixzer
-    fields = ['location', 'is_student', 'college', 'phone_number']
-
-
-# PROFILE DELETE VIEW (deleteing mixzer child account)
-class ProfileDelete(LoginRequiredMixin, DeleteView):
-    model = Mixzer
-    success_url = '/mixzer/logout/'
-
-# deleting USER account
-
-
-class UserDelete(LoginRequiredMixin, DeleteView):
-    model = User
-    success_url = '/users/logout/'
-
-
 def delete_user(request):
     if request.method == 'POST':
         user = User.objects.get(id=request.user.id)
@@ -238,22 +219,22 @@ def delete_user(request):
 def update_profile(request):
     error_message = ''
     if request.method == 'POST':
-        # form = UserCreationForm(request.POST)
         add_form = AddExtraUserCreationForm(
             request.POST, instance=request.user)
         addtl_form = UserForm(request.POST, instance=request.user.mixzer)
+        college_form = AddCollegeForm(request.POST, instance=request.user.mixzer)
         if add_form.is_valid() and addtl_form.is_valid():
-
             add_form.save()
             addtl_form.save()
+            college_form.save()
             return redirect('/profile/')
         else:
             error_message = 'Invalid - try again'
 
-    # form = UserForm(instance=request.user)
     add_form = AddExtraUserCreationForm(instance=request.user)
     addtl_form = UserForm(instance=request.user.mixzer)
+    college_form = AddCollegeForm(instance=request.user.mixzer)
     context = {
-        'add_form': add_form, 'addtl_form': addtl_form, 'error_message': error_message}
+        'add_form': add_form, 'addtl_form': addtl_form, 'college_form': college_form, 'error_message': error_message}
     return render(request, 'mixzer_form.html', context)
 

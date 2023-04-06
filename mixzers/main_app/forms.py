@@ -14,6 +14,11 @@ class AddExtraUserCreationForm(ModelForm):
         model = User
         fields = ['email', 'first_name', 'last_name']
 
+class AddCollegeForm(ModelForm):
+    class Meta:
+        model = Mixzer
+        fields = ['college']
+
 
 class MessageForm(ModelForm):
     class Meta:
