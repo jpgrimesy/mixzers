@@ -793,3 +793,73 @@ a.canceltag{
     margin: 0 auto;
     font-size: 1rem;
 }
+
+/************************* MIXZERS DETAIL PAGE ********************/
+.detail-background{
+    margin-top: -1rem;
+    margin-right: -1rem;
+    margin-left: -1rem;
+    height: 17rem;
+    background-image: url('https://images.wallpaperscraft.com/image/single/books_shelf_collection_119979_1600x900.jpg');
+   
+}
+.mixzer-img{
+    border-radius: 50%;
+    height: 15rem;
+    width: 15rem;
+    object-fit: cover;
+    margin-top: -8rem;
+    margin-left: 5rem;
+}
+.detail-user{
+    margin-left: 23rem;
+    margin-top: -14rem;
+    color: white;
+    font-size: 60px;
+}
+.mixzer-location{
+   font-size: 20px;
+   margin-left: 25rem;
+   margin-top: -3rem;
+   color: wheat;
+}
+.mixzer-interaction{
+    display: flex;
+    flex-direction: column;
+    margin-left: 8rem;
+}
+.user-message{
+    margin-top: -2rem;
+}
+.user-review{
+    margin-left: 0.3rem;
+}
+.mixzer-reviews{
+    border: 3px solid black;
+    width: 30rem;
+    margin-top: 2rem;
+    height: 15rem;
+}
+.mixzertitle-reviews{
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px;
+}
+.reviews-here{
+    text-align: center;
+}
+.mixzer-jobs{
+    border: 2px solid black;
+    width: 55rem;
+    margin: 0 auto;
+    margin-top: -30rem;
+    height: 30rem;
+    color: black;
+    margin-left: 32rem;
+}
+.mixzerjob-posted{
+    text-align: center;
+}
+.mixzer-about{
+   text-align: center;
+}

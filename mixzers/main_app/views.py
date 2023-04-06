@@ -218,8 +218,6 @@ class ProfileDelete(LoginRequiredMixin, DeleteView):
     success_url = '/mixzer/logout/'
 
 # deleting USER account
-
-
 class UserDelete(LoginRequiredMixin, DeleteView):
     model = User
     success_url = '/users/logout/'
