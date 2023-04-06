@@ -1,3 +1,4 @@
+import os, requests
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -5,12 +6,27 @@ from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.gis.geos import Point
+from django.contrib.gis.measure import Distance
 from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm, JobPostForm
-from .models import Mixzer, Message, Review, Job_Post
+from .models import Mixzer, Message, Review, Job_Post, JobPoint
 from django.views.generic import DetailView
 from django.views.generic.edit import DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
+
+def get_coordinates(address):
+    url = 'https://maps.googleapis.com/maps/api/geocode/json'
+    params = {'address': address, 'key': os.environ['GOOGLE_API_KEY']}
+    response = requests.get(url, params=params)
+    if response.status_code == 200:
+        result = response.json()
+        if result['status'] == 'OK':
+            location = result['results'][0]['geometry']['location']
+            return (location['lat'], location['lng'])
+    return None
 # Create your views here.
 
 # HOME PAGE
@@ -123,26 +139,31 @@ def create_review(request, user_id):
 
 @login_required
 def post_job(request):
-    author = Mixzer.objects.get(user=request.user)
-    if request.method == 'POST':
-        form = JobPostForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = author
-            post.save()
-            return redirect('profile')
-    form = JobPostForm()
-    return render(request, 'jobpost.html', {
-        'form': form
-    })
+  author = Mixzer.objects.get(user=request.user)
+  if request.method == 'POST':
+    form = JobPostForm(request.POST)
+    if form.is_valid():
+      post = form.save(commit=False)
+      post.author = author
+      post.save()
+      location = author.location
+      coordinates = get_coordinates(location)
+      job_point = JobPoint(job_post=post, location=Point(coordinates))
+      job_point.save()
+      return redirect('nearby_jobs')
+  form = JobPostForm()
+  return render(request, 'jobpost.html', {
+    'form': form
+  })
 
 
 @login_required
 def nearby_jobs(request):
-    jobs = Job_Post.objects.all()
-    return render(request, 'nearjob.html', {
-        'jobs': jobs
-    })
+  user_location = get_coordinates(request.user.mixzer.location)
+  jobs = Job_Post.objects.filter(jobpoint__location__distance_lte=(Point(user_location), Distance(mi=20)))
+  return render(request, 'nearjob.html', {
+    'jobs': jobs
+  })
 
 
 @login_required
