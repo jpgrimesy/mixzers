@@ -176,8 +176,12 @@ def hire(request, job_id):
 
 
 class MixzerDetail(LoginRequiredMixin, DetailView):
-<<<<<<< HEAD
     model = Mixzer
+
+    def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      context['reviews'] = Review.objects.filter(reviewee=self.object)
+      return context
 
 
 # JOB POST UPDATE VIEW
@@ -203,11 +207,4 @@ class ProfileDelete(LoginRequiredMixin, DeleteView):
   model=Mixzer
   success_url='/'
 
-=======
-  model = Mixzer
 
-  def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
-    context['reviews'] = Review.objects.filter(reviewee=self.object)
-    return context
->>>>>>> 915c4b1 (Changed mixzer detail view to display reviews)
