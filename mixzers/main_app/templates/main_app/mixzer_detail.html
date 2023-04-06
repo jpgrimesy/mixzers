@@ -9,6 +9,11 @@
 <body>
     {{ mixzer.user }}
     {{ mixzer.location }}
-    {{ mixzer.review }}
+
+    {% for review in reviews %}
+    {{ review.content }}
+    {% empty %}
+    no reviews yet
+    {% endfor %}
 </body>
 </html>
