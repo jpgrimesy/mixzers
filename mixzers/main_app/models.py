@@ -11,9 +11,6 @@ class Mixzer(models.Model):
     college = models.CharField(max_length=100, blank=True)
     phone_number = models.CharField(max_length=18, blank=True)
 
-    def __absolute_url__(self):
-        return reverse('profile', kwargs={'pk': self.pk})
-
     def verify_student(self):
         return self.user.email.endswith('.edu')
 

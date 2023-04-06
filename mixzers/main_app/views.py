@@ -186,10 +186,26 @@ class ProfileUpdate(LoginRequiredMixin, UpdateView):
     fields = ['location', 'is_student', 'college', 'phone_number']
 
 
-# PROFILE DELETE VIEW
+# PROFILE DELETE VIEW (deleteing mixzer child account)
 class ProfileDelete(LoginRequiredMixin, DeleteView):
+    model = Mixzer
+    success_url = '/mixzer/logout/'
+
+# deleting USER account
+
+
+class UserDelete(LoginRequiredMixin, DeleteView):
     model = User
     success_url = '/users/logout/'
+
+
+def delete_user(request):
+    if request.method == 'POST':
+        user = User.objects.get(id=request.user.id)
+        user.mixzer.delete()
+        user.delete()
+        return redirect('logout')
+    return render(request, 'main_app/mixzer_confirm_delete.html')
 
 
 @login_required
@@ -198,31 +214,21 @@ def update_profile(request):
     if request.method == 'POST':
         # form = UserCreationForm(request.POST)
         add_form = AddExtraUserCreationForm(
-            request.POST)
-        # addtl_form = UserForm(request.POST)
-        if add_form.is_valid():
-            # user = form.save()
-            add_user = add_form.save(commit=False)
-            add_user.email = add_user.email
-            add_user.first_name = add_user.first_name
-            add_user.last_name = add_user.last_name
-            # form.save()
-            # addtl_user = addtl_form.save(commit=False)
-            # addtl_user.location = addtl_user.location
-            # addtl_user.phone_number = addtl_user.phone_number
-            # addtl_user.save()
-            # login(request, user)
+            request.POST, instance=request.user)
+        addtl_form = UserForm(request.POST, instance=request.user.mixzer)
+        if add_form.is_valid() and addtl_form.is_valid():
+
             add_form.save()
-            # addtl_form.save()
+            addtl_form.save()
             return redirect('/profile/')
         else:
             error_message = 'Invalid - try again'
 
     # form = UserForm(instance=request.user)
     add_form = AddExtraUserCreationForm(instance=request.user)
-    # addtl_form = UserForm(instance=request.user.mixzer)
+    addtl_form = UserForm(instance=request.user.mixzer)
     context = {
-        'add_form': add_form, 'error_message': error_message}
+        'add_form': add_form, 'addtl_form': addtl_form, 'error_message': error_message}
 
     return render(request, 'mixzer_form.html', context)
 # these may or may not have been created by Mel

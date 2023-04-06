@@ -8,8 +8,8 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('profile/update/',
          views.update_profile, name='mixzer_update'),
-    path('profile/<int:pk>/delete/',
-         views.ProfileDelete.as_view(), name='mixzer_delete'),
+    path('profile/delete/',
+         views.delete_user, name='mixzer_delete'),
 
     # path to account profile. we need to make a test
     # page of all the information for others to view the specifc user
