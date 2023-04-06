@@ -37,24 +37,26 @@
                 <div class="left col-sm-8">
                     <!-- <div class="middle">
                         <div class="inner"> -->
+                        
                     {% if user %}
-                        <span class="profile-text" id="profile-username">{{ abc.user.username }}</span>
+                        <span class="profile-text" id="profile-username">{{ mixzer.user.username }}</span>
                         
                         <img src="https://i.ibb.co/yQ8pNsf/screenshot-2023-03-28-at-2-02-45-pm-720.png" alt="" class="user-img">
 
                         <br>
-                        <span class="profile-text" id="profile-first">{{ abc.user.first_name }}</span>
-                        <span class="profile-text" id="profile-first">{{ abc.user.last_name }}</span>
+                        <span class="profile-text" id="profile-first">{{ mixzer.user.first_name }}</span>
+                        <span class="profile-text" id="profile-first">{{ mixzer.user.last_name }}</span>
                         <br>
-                        <span class="profile-text" id="profile-location">{{ abc.location }}</span>
+                        <span class="profile-text" id="profile-location">{{ mixzer.location }}</span>
                         <br>
-                        <span class="profile-text" id="profile-email">{{ abc.user.email }}</span>
+                        <span class="profile-text" id="profile-email">{{ mixzer.user.email }}</span>
                         <br>
                         <span class="profile-text" id="profile-student">
-                            {% if is_student and college %}
-                                    <p>Attending {{ college }}</p>
+                            {% if mixzer.is_student %}
+                                    <p>Attending {{ mixzer.college }}</p>
                             {% else %}
                                 Not Verified as Student
+                                <a href="{% url 'verify' %}">verify</a><br />
                             {% endif %}
                             
                         </span>
@@ -67,7 +69,7 @@
                         {% endif %}
                         {% endif %}                        
                         <br>
-                    <a href="{% url 'verify' %}">verify</a><br />
+                    
                         <!-- </div>
                     </div> -->
                 </div>
