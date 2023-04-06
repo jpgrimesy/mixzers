@@ -25,4 +25,5 @@ urlpatterns = [
     path('apply/<int:job_id>/', views.apply, name='apply'),
     path('hire/<int:job_id>/', views.hire, name='hire'),
     path('mixzer/<int:pk>/', views.MixzerDetail.as_view(), name='mixzer_detail'),
+    path('mixzer/<int:user_id>/add_photo/', views.add_photo, name='add_photo'),
 ]

@@ -1,16 +1,16 @@
-import os, requests
+import os, requests, uuid, boto3
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.urls import reverse
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm, JobPostForm, AddCollegeForm
-from .models import Mixzer, Message, Review, Job_Post, JobPoint
+from .models import Mixzer, Message, Review, Job_Post, JobPoint, Photo
 from django.views.generic import DetailView
 from django.views.generic.edit import DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -238,3 +238,19 @@ def update_profile(request):
         'add_form': add_form, 'addtl_form': addtl_form, 'college_form': college_form, 'error_message': error_message}
     return render(request, 'mixzer_form.html', context)
 
+
+@login_required
+def add_photo(request, user_id):
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        try:
+            bucket = os.environ['S3_BUCKET']
+            s3.upload_fileobj(photo_file, bucket, key)
+            url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
+            Photo.objects.create(url=url, mixzer_id=user_id)
+        except Exception as e:
+            print('An error occurred uploading file to S3')
+            print(e)
+    return redirect('profile')
