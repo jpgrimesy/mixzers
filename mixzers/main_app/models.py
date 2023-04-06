@@ -13,9 +13,6 @@ class Mixzer(models.Model):
     college = models.CharField(max_length=100, blank=True)
     phone_number = models.CharField(max_length=18, blank=True)
 
-    def __absolute_url__(self):
-        return reverse('profile', kwargs={'pk': self.pk})
-
     def verify_student(self):
         return self.user.email.endswith('.edu')
 
@@ -59,3 +56,4 @@ class Job_Post(models.Model):
 class JobPoint(models.Model):
     job_post = models.ForeignKey(Job_Post, on_delete=models.CASCADE)
     location = models.PointField(geography=True)
+

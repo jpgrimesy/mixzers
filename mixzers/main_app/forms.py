@@ -2,6 +2,7 @@ from django.forms import ModelForm
 from .models import Mixzer, Message, Review, Job_Post
 from django.contrib.auth.models import User
 
+
 class UserForm(ModelForm):
     class Meta:
         model = Mixzer
@@ -23,7 +24,7 @@ class MessageForm(ModelForm):
 class ReviewForm(ModelForm):
     class Meta:
         model = Review
-        fields = ['title', 'rating', 'content' ]
+        fields = ['title', 'rating', 'content']
 
 
 class JobPostForm(ModelForm):
