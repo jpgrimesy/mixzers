@@ -57,3 +57,8 @@ class JobPoint(models.Model):
     job_post = models.ForeignKey(Job_Post, on_delete=models.CASCADE)
     location = models.PointField(geography=True)
 
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    mixzer = models.ForeignKey(Mixzer, on_delete=models.CASCADE)
+
+

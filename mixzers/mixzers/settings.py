@@ -33,7 +33,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-'django-insecure-ppjjnjd0lwie2&wrejtzu-(6g6689xmj+(6e#-y)ebwcf^rg@f'
 # Application definition
 
 INSTALLED_APPS = [
@@ -84,7 +83,11 @@ WSGI_APPLICATION = 'mixzers.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'mixzers',
+        'NAME': os.environ['BIT_DB_NAME'],
+        'USER': os.environ['BIT_USER'],
+        'PASSWORD': os.environ['BIT_PASSWORD'],
+        'HOST': os.environ['BIT_HOST'],
+        'PORT': os.environ['BIT_PORT']
     }
 }
 
