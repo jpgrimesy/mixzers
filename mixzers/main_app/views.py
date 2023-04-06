@@ -183,6 +183,11 @@ def hire(request, job_id):
 class MixzerDetail(LoginRequiredMixin, DetailView):
     model = Mixzer
 
+    def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      context['reviews'] = Review.objects.filter(reviewee=self.object)
+      return context
+
 
 # JOB POST UPDATE VIEW
 class PostJobUpdate(UpdateView):
@@ -250,6 +255,5 @@ def update_profile(request):
     addtl_form = UserForm(instance=request.user.mixzer)
     context = {
         'add_form': add_form, 'addtl_form': addtl_form, 'error_message': error_message}
-
     return render(request, 'mixzer_form.html', context)
-# these may or may not have been created by Mel
+
