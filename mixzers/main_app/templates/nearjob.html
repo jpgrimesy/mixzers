@@ -4,6 +4,12 @@
 
 
 <!--- CONTENT GOES HERE -->
+<h1>Jobs found within {{ radius }} miles of {{ request.user }}</h1>
+<form method="POST" class="form-inline">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary mb-2">Search</button>
+</form>
 {% for job in jobs %}
     <p>{{ job.title }}</p>
     <p>{{ job.schedule }}</p>

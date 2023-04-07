@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
-from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm, JobPostForm, AddCollegeForm
+from .forms import UserForm, AddExtraUserCreationForm, MessageForm, ReviewForm, JobPostForm, AddCollegeForm, ChangeRadius
 from .models import Mixzer, Message, Review, Job_Post, JobPoint, Photo
 from django.views.generic import DetailView
 from django.views.generic.edit import DeleteView, UpdateView
@@ -159,11 +159,22 @@ def post_job(request):
 
 @login_required
 def nearby_jobs(request):
-  user_location = get_coordinates(request.user.mixzer.location)
-  jobs = Job_Post.objects.filter(jobpoint__location__distance_lte=(Point(user_location), Distance(mi=20)))
-  return render(request, 'nearjob.html', {
-    'jobs': jobs
-  })
+    user_location = get_coordinates(request.user.mixzer.location)
+    radius = 20
+    if request.method == 'POST':
+        form = ChangeRadius(request.POST)
+        if form.is_valid():
+            radius = form.cleaned_data['radius']
+            jobs = Job_Post.objects.filter(jobpoint__location__distance_lte=(Point(user_location), Distance(mi=radius)))
+    else:
+        form = ChangeRadius(initial={'radius': radius})
+        jobs = Job_Post.objects.filter(jobpoint__location__distance_lte=(Point(user_location), Distance(mi=radius)))
+    
+    return render(request, 'nearjob.html', {
+        'jobs': jobs,
+        'form': form,
+        'radius': radius
+    })
 
 
 @login_required
