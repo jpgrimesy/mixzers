@@ -1,1 +1,1 @@
-web: gunicorn mixzers.wsgi
+web: gunicorn --chdir ./mixzers mixzers.wsgi
