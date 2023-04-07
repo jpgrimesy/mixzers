@@ -1,5 +1,6 @@
 body::-webkit-scrollbar{
     display: none;
+    width: auto;
 }
 header{
     background-color: #000000;
@@ -646,7 +647,7 @@ input{
     text-align: center;
   
 }
-.left > #profile-location, #profile-email, #profile-student{
+.left > #profile-location, #profile-email, #profile-student, #profile-first, #profile-last{
     font-size: 1.2rem;
     margin: 0, 2rem;
     text-align: center;
@@ -862,4 +863,37 @@ a.canceltag{
 }
 .mixzer-about{
    text-align: center;
+}
+
+/* job near you page */
+.job-deck{
+    border: red 2px solid;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+
+.job-card{
+    border: green 2px solid;
+    display: flex;
+    text-align: center;
+}
+
+.search_line{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    
+}
+
+
+#NJ_h1{
+    font-size: 3rem;
+    margin: 1rem;
+    margin-top: 2rem;
+    text-align: center;
 }
