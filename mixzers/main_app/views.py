@@ -174,9 +174,9 @@ def apply(request, job_id):
 
 
 @login_required
-def hire(request, job_id):
-    user = Mixzer.objects.get(user=request.user)
-    Job_Post.objects.get(id=job_id).candidates.add(user.id)
+def hire(request, job_id, mixzer_id):
+    mixzer = Mixzer.objects.get(id=mixzer_id)
+    Job_Post.objects.get(id=job_id).candidates.add(mixzer.id)
     return redirect('nearby_jobs')
 
 
@@ -211,7 +211,7 @@ def delete_user(request):
         user = User.objects.get(id=request.user.id)
         user.mixzer.delete()
         user.delete()
-        return redirect('logout')
+        return redirect('/')
     return render(request, 'main_app/mixzer_confirm_delete.html')
 
 

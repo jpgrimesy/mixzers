@@ -23,7 +23,7 @@ urlpatterns = [
     path('post-job/<int:pk>/delete/', views.PostJobDelete.as_view(), name="post_job_delete"),
     path('nearby-jobs/', views.nearby_jobs, name='nearby_jobs'),
     path('apply/<int:job_id>/', views.apply, name='apply'),
-    path('hire/<int:job_id>/', views.hire, name='hire'),
+    path('hire/<int:job_id>/<int:mixzer_id>/', views.hire, name='hire'),
     path('mixzer/<int:pk>/', views.MixzerDetail.as_view(), name='mixzer_detail'),
     path('mixzer/<int:user_id>/add_photo/', views.add_photo, name='add_photo'),
 ]
