@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True if os.environ['MODE'] == 'dev' else False
 
 ALLOWED_HOSTS = []
 
@@ -138,3 +138,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 GDAL_LIBRARY_PATH = '/Applications/Postgres.app/Contents/Versions/15/lib/libgdal.dylib'
 GEOS_LIBRARY_PATH = '/Applications/Postgres.app/Contents/Versions/15/lib/libgeos_c.dylib'
+
+import django_on_heroku
+django_on_heroku.settings(locals())
