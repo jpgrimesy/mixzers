@@ -33,7 +33,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
 ]
 
 MIDDLEWARE = [
@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'mixzers.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mixzers',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': os.environ['BIT_DB_NAME'],
+        'USER': os.environ['BIT_USER'],
+        'PASSWORD': os.environ['BIT_PASSWORD'],
+        'HOST': os.environ['BIT_HOST'],
+        'PORT': os.environ['BIT_PORT']
     }
 }
 
@@ -126,8 +130,11 @@ STATIC_URL = 'static/'
 
 LOGIN_REDIRECT_URL = '/profile/'
 
-LOGOUT_RIDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GDAL_LIBRARY_PATH = '/Applications/Postgres.app/Contents/Versions/15/lib/libgdal.dylib'
+GEOS_LIBRARY_PATH = '/Applications/Postgres.app/Contents/Versions/15/lib/libgeos_c.dylib'
