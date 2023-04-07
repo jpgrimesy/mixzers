@@ -8,10 +8,11 @@
     <p>{{ job.title }}</p>
     <p>{{ job.schedule }}</p>
     <p>{{ job.applicants.all }}</p>
-    <p><a href="{% url 'mixzer_detail' job.author.user.id %}">{{ job.author.user.username }}</a></p>
+    <p><a href="{% url 'mixzer_detail' job.author.id %}">{{ job.author.user.username }}</a></p>
     {% if job.applicants.all %}
     {% for applicant in job.applicants.all %}
     <p>{{ applicant.user.username }}</p>
+    <a href="{% url 'hire' job.id applicant.id%}">hire</a>
     {% endfor %}
     {% else %}
     <p>No applicants</p>
@@ -24,7 +25,7 @@
     <p>No candidates</p>
     {% endif %}
     <a href="{% url 'apply' job.id %}">Apply</a>
-    <a href="{% url 'hire' job.id %}">hire</a>
+   
 
 {% endfor %}
 
