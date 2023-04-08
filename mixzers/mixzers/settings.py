@@ -136,8 +136,8 @@ LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-GDAL_LIBRARY_PATH = os.environ['GDAL_LIBRARY_PATH']
-GEOS_LIBRARY_PATH = os.environ['GEOS_LIBRARY_PATH']
+GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
+GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
 
 import django_on_heroku
 django_on_heroku.settings(locals())
