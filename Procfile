@@ -1,1 +1,1 @@
-web: gunicorn mixzers.wsgi:application
+web: gunicorn mixzers.wsgi
