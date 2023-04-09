@@ -37,26 +37,24 @@
                 <div class="left col-sm-8">
                     <!-- <div class="middle">
                         <div class="inner"> -->
-                        
                     {% if user %}
-                        <span class="profile-text" id="profile-username">{{ mixzer.user.username }}</span>
+                        <span class="profile-text" id="profile-username">{{ abc.user.username }}</span>
                         
                         <img src="https://i.ibb.co/yQ8pNsf/screenshot-2023-03-28-at-2-02-45-pm-720.png" alt="" class="user-img">
 
                         <br>
                         <span class="profile-text" id="profile-first">{{ abc.user.first_name }}</span>
-                        <span class="profile-text" id="profile-last">{{ abc.user.last_name }}</span>
+                        <span class="profile-text" id="profile-first">{{ abc.user.last_name }}</span>
                         <br>
-                        <span class="profile-text" id="profile-location">{{ mixzer.location }}</span>
+                        <span class="profile-text" id="profile-location">{{ abc.location }}</span>
                         <br>
-                        <span class="profile-text" id="profile-email">{{ mixzer.user.email }}</span>
+                        <span class="profile-text" id="profile-email">{{ abc.user.email }}</span>
                         <br>
                         <span class="profile-text" id="profile-student">
-                            {% if mixzer.is_student %}
-                                    <p>Attending {{ mixzer.college }}</p>
+                            {% if is_student and college %}
+                                    <p>Attending {{ college }}</p>
                             {% else %}
                                 Not Verified as Student
-                                <a href="{% url 'verify' %}">verify</a><br />
                             {% endif %}
                             
                         </span>
@@ -69,7 +67,7 @@
                         {% endif %}
                         {% endif %}                        
                         <br>
-                    
+                    <a href="{% url 'verify' %}">verify</a><br />
                         <!-- </div>
                     </div> -->
                 </div>
@@ -107,17 +105,7 @@
                 
             </section>
         </div>
-        <!-- {% for photo in mixzer.photo_set.all %}
-        <img class="responsive-img card-panel" src="{{photo.url}}">
-        {% empty %}
-        <div class="card-panel teal-text center-align">No Photos Uploaded</div>
-        {% endfor %}
-        <form action="{% url 'add_photo' mixzer.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
-            {% csrf_token %}
-            <input type="file" name="photo-file">
-            <br><br>
-            <button type="submit" class="btn">Upload Photo</button>
-        </form> -->
+
         <div class="middle render-jobs col-sm-4">
             <div class="col-sm-12">
                 <h1 class="jobsposted">Jobs Posted</h1>
