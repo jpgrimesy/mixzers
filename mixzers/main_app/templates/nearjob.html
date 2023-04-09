@@ -39,7 +39,7 @@
             <h1 id="no-jobs">No Jobs Near {{ user.mixzer.location }}</h1>
         {% endif %}
 
-        <p class="col-12"> --to change your location edit it from your profile page --</p>
+        <!-- <p class="col-12"> --to change your location edit it from your profile page --</p> -->
        
             <div class="search_line">
                 <div class="col-9"></div>
@@ -69,7 +69,7 @@
                                         <h5 id="NJ_schedule">SCHEDULE: {{ job.schedule }}</h5>
                                         <p id="NJ_description">{{ job.job_description }}</p>
                                         <!-- <p>{{ job.applicants.all }}</p> -->
-                                        <a href="{% url 'mixzer_detail' job.author.id %}">Checkout {{ job.author.user.username }}'s Profile</a>
+                                        <a class="a-black" href="{% url 'mixzer_detail' job.author.id %}">Checkout {{ job.author.user.username }}'s Profile</a>
                                 </div>
                             </div>
                         </div>

@@ -16,8 +16,8 @@ footer{
     background-color: #000000;
     color: white;
     height: 4rem;
-    margin: -1 rem;
-    margin-top: -4rem;
+    margin: 1rem;
+        /* margin-top: -4rem; */
     position: fixed;
     width: 90rem;
     margin-left: -0.5rem;
@@ -544,9 +544,7 @@ input{
 
 /* profile page */
 #profile-test{
-    background-color: rgb(7, 49, 73, 0.9);
-    
-}
+    background-color: black;}
 
 .upper, #jp-form{
     display: flex;
@@ -560,7 +558,7 @@ input{
     background:rgb(255, 255, 255, 0.93);
     border-radius: 20px;
     margin: 2rem;
-    box-shadow: rgb(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(255, 255, 255, 0.725) 0px 5px 15px;
 
     
 }
@@ -614,6 +612,78 @@ input{
     margin-top: 1rem;
 
 }
+/******************* confirm delete account view ******************/
+.account-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height:auto;
+    
+}
+.account-form{
+    margin: 0 !important;
+    border: black 2px solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.account-btn{
+    margin: 15px !important;
+}
+.decline-delete, .confirm-delete {
+    background: dodgerblue !important;
+    color: #fff !important;
+    border: #fff !important;
+    color: white !important;
+    font-size: 1.4rem;
+    padding: 10px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+}
+footer{
+    width: 100% !important;
+}
+/******************* edit account view ******************/
+
+#edit-profile-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: black 2px solid;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 0 !important;
+}
+.edit-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+.edit-profile-btn {
+    /* width: 100% !important; */
+    background: dodgerblue !important;
+    color: #fff !important;
+    border: #fff !important;
+}
+input[type="text"], input[type="email"], select {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  tr{
+    display: flex;
+    justify-content: left;
+  }
 
 /******************* JOB POST PAGE  ******************/
 #jp-body{
@@ -625,6 +695,7 @@ background: black;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 .center > p, textarea{
     position: relative !important;
@@ -856,6 +927,9 @@ a.canceltag{
     flex-wrap: wrap;
     flex-direction: row;
 
+}
+.a-black{
+    color: blue !important;
 }
 
 .job-card{
