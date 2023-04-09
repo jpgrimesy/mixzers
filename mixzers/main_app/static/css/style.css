@@ -42,9 +42,10 @@ a{
 ul{
     list-style: none;
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;
 
 }
+
 
 /** BRAND **/
 
@@ -358,143 +359,65 @@ p{
 
 
 /** ABOUT SECTION **/
-.mix{
-    color: #073149;
-}
-.z{
-    color: aquamarine;
-}
-.one{
-background-image: linear-gradient(90deg, rgb(91, 236, 246), rgb(79, 70, 229));
-height: 40rem;
-margin-top: -6rem;
-margin-left: -0.5rem;
-margin-right: -0.5rem;
-padding-bottom: 8rem;
-color: white;
-}
-.about-title{
-    padding-top: 7rem;
-    font-size: 90px;
-    text-align: center;
-}
-.about{
-    font-size: 35px;
-    text-align: center;
-    color: black;
-    display: flex;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    justify-content: center;
+a{
+    color: white !important;
 }
 
-.three{
-    height: 80rem;
-    background-image: linear-gradient(90deg, rgb(91, 236, 246), rgb(79, 70, 229));
-    margin-left: -0.5rem;
-    margin-right: -0.5rem;
-    border-top: 20px solid whitesmoke;
-    
-}
-
-.meet-team{
-    display: flex;
-    padding-top: 3rem;
-}
-.about-team{
-    padding-top: 2rem;
-    font-size: 90px;
-    text-align: center;
-    margin-right: -0.5rem;
-    margin-left: -0.5rem;
+#about-all{
+    background-color: black;
     color: white;
 }
+.about-title, .about-team{
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+.about-p{
+    margin: 2rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
 
-.meet-team{
-    display: flex;
-    justify-content: space-around;
+.everything{
+    background-color: black;
+    color: white;
+    width: 100%;
 }
 .team{
-    width: 100%;
-    height : 100%;
-    object-fit: contain;
+    display: flex;
+    justify-content: space-between;
 }
-.jon{
-border-radius: 25%;
-height: 350px;
-width: 350px;
-overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #000000;
-margin-top: 1rem;
-}
-.mel{
-    border-radius: 25%;
-    height: 350px;
-    width: 350px;
-overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #000000
-}
-.em{
-    border-radius: 25%;
-    height: 350px;
-    width: 350px;
-overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #000000
-}
-.teams{
-    font-size: 30px;
+.name{
     text-align: center;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    color: #000000;
-    padding-top: 1rem;
+    font-size: 2rem;
+    margin-top: 1rem;
 }
-.jon-name{
-    padding-left: 8rem;
-    font-size: 55px;
-    color: rgb(1, 18, 62);
+.description{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1rem;
 }
-.mel-name{
-    padding-left: 6rem;
-    font-size: 55px;
-    color: rgb(1, 18, 62);
-    padding-top: 1rem;
+
+.space{
+    display: flex;
+    justify-content: space-between;
 }
-.em-name{
-    padding-left: 8rem;
-    font-size: 55px;
-    color: rgb(1, 18, 62);
-    padding-top: 1rem;
-}
-.jon-description{
-    margin-top: -2rem;
-    padding-left: 3rem;
-}
-.mel-description{
-    margin-top: -2rem;
-    padding-left: 4rem;
-}
-.em-description{
-    margin-top: -2rem;
-    padding-left: 6rem;
-}
-.github-manager{
-    padding-left: 0.8rem
-}
-.designer{
-    padding-left: 4rem;
-}
-.documenter{
-    padding-left: 1rem;
+
+.team-img{
+    max-height: 360px;
+    max-width: 360px;
+    margin: auto;
+ }
+
+ #mel{
+    padding-right: 2rem, !important;
+    margin-left: 2rem;
+ }
+
+.team-titles{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
 }
 
 
@@ -867,7 +790,6 @@ a.canceltag{
 
 /* job near you page */
 .job-deck{
-    border: red 2px solid;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -876,9 +798,11 @@ a.canceltag{
 }
 
 .job-card{
-    border: green 2px solid;
+    /* border: #44e5e7 2px solid; */
     display: flex;
     text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .search_line{
@@ -890,10 +814,26 @@ a.canceltag{
     
 }
 
+.card-body > a{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
 
 #NJ_h1{
     font-size: 3rem;
-    margin: 1rem;
     margin-top: 2rem;
     text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+
+}
+#NJ_title{
+    margin: 15px;
+}
+#NJ_type{
+    margin-top: 25px;
+}
+#NJ_type, #NJ_salary, #NJ_schedule{
+    font-size: 15px;
 }
