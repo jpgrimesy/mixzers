@@ -665,7 +665,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: rem;
 }
 .edit-profile-btn {
     /* width: 100% !important; */
