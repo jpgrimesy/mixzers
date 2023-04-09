@@ -7,20 +7,16 @@
     <h1 class="login-mixzer">MixZer</h1>
 <br>
 <h3 class="login-name">Welcome Back!</h3>
-    <form method="POST" action="{% url 'login' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
+    <form class= "form-label" method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
     <input type="hidden" name="next" value="{{ next }}">
-    <button type="submit" class="btn">Log In</button>
+    <button type="submit" class="loginBtn">Log In</button>
     <div class="login-account">
     <h4>Don't Have An Account?</h4>
-    <a href="http://localhost:8000/signup/"><h4 class="login-sign">Sign Up</h4></a>
+    <a href="{% url 'signup' %}"><h4 class="login-sign">Sign Up</h4></a>
     </div>
   </form>
 </container>
 </div>
-<!-- <br>
-<br>
-<br>
-<br> -->
 {% endblock %}

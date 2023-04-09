@@ -15,13 +15,6 @@
         <a href="{% url 'create_review' mixzer.id%}"><button class ='user-review' type="submit">Make a review</button></a>
         <a href="{% url 'send_message' mixzer.id%}"><button class="user-message" type='submit'>Send A Message</button></a>
     </div>
-    <div class="mixzer-reviews">
-        <h1 class="mixzer-about">About {{ mixzer.user}}</h1>
-        <br>
-        <br>
-
-
-    </div>
     <div class="mixzer-jobs">
         <h2 class="mixzertitle-reviews">{{ mixzer.user}}'s Reviews</h2>
         {% for review in reviews %}
