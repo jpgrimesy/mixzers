@@ -1,6 +1,6 @@
 {% extends 'base.html'%}
 {% block content %}
-    
+    <h1>Delete {{ object.username }}</h1>
 
     <div class="account-delete">
         <h1>Delete Profile</h1>
@@ -13,4 +13,5 @@
             <a href="{% url 'profile' %}" class="decline-delete account-btn ">No!</a>
         </form>
     </div>
+
 {% endblock %}

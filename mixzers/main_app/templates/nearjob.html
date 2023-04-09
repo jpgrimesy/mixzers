@@ -42,10 +42,12 @@
         <!-- <p class="col-12"> --to change your location edit it from your profile page --</p> -->
        
             <div class="search_line">
-                <div class="col-9"></div>
-                    <div class="job-search col-3">
-                        <input id="search-box" type="text" placeholder="Search...">
-                </div>
+                <h1>Jobs found within {{ radius }} miles of {{ request.user }}</h1>
+              <form method="POST" class="form-inline">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit" class="btn btn-primary mb-2">Search</button>
+              </form>
             </div>
     
         <hr>
@@ -101,6 +103,7 @@
             <a href="{% url 'apply' job.id %}">Apply</a>
     
         {% endif %}
+
     {% endif %}
 
 

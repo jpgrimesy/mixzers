@@ -4,7 +4,7 @@
 <br>
 <br>
 <br>
-  <h1 class="edit-title">Edit <span class="teal-text">{{ object.title }}</span></h1>
+  <h1 class="edit-title"><span class="teal-text">Edit: </span>{{ object.title }}</h1>
 {% else %}
   <h1>Add A Job</h1>
 {% endif %}
@@ -14,7 +14,7 @@
   <table>
     {{ form.as_table }}
   </table>
-  <input type="submit" value="Submit!" class="btn">
+  <input type="submit" value="Submit!" class="editBtn">
 </form>
 </container>
 <br>
