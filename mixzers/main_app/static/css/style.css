@@ -617,13 +617,73 @@ input{
 
 /******************* JOB POST PAGE  ******************/
 #jp-body{
-   background: rgb(7, 49, 73, 0.93);
+background: black;
+
 }
 
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center > p, textarea{
+    position: relative !important;
+    width: 500px !important;
+    height: 60px !important;
+    margin-top: 0px !important;
+    
+    margin-bottom: 50px !important;
+}
+.center > p > input, textarea{
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    border: 2px solid #000 !important;
+    outline: none !important;
+    background: none !important;
+    padding: 10px !important;
+    border-radius: 10px !important;
+    font-size: 1.2em !important;
+}
+.center > p > label{
+        position: absolute !important;
+        top: 14px !important;
+        left: 20px !important;
+        font-size: 1em !important;
+        transition: 0.6s !important;
+        font-family: sans-serif !important;
+}
+
+.center > p > #id_title, #id_job_description, #id_job_type, #id_salary, #id_schedule{
+    transform: translateY(45px) !important;
+}
+
+.center > p > [type="button"] {
+    width: 100% !important;
+    background: dodgerblue !important;
+    color: #fff !important;
+    border: #fff !important;
+}
+.btn-about{
+    flex: 0 0 25%;
+    max-width: 80% !important;
+}
+.posting{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-control{
+    padding: 1rem !important;
+}
+label{
+    width: auto;
+}
 #jp-h1{
     font-size: 3rem;
     margin: 1rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     text-align: center;
     color: rgb(255, 255, 255, 0.87);
 }
@@ -676,6 +736,7 @@ input{
 }
 #id_job_description{
     margin-top: 2rem;
+    
 }
 input.btn{
     margin-left: 15rem;
