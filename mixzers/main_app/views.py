@@ -145,7 +145,7 @@ def post_job(request):
       coordinates = get_coordinates(location)
       job_point = JobPoint(job_post=post, location=Point(coordinates))
       job_point.save()
-      return redirect('nearby_jobs')
+      return redirect('profile')
   form = JobPostForm()
   return render(request, 'jobpost.html', {
     'form': form
