@@ -153,7 +153,7 @@
                     {% for job in jobs%}
                     <p class="job_title"><strong>Title: </strong>{{ job.title }} </p>
                     <p class="jobtype"><strong>Job Type:</strong>{{job.job_type}}</p>
-                    <p><strong>Applicants:</strong></p>
+                    <p class="jobtype"><strong>Applicants:</strong></p>
                         {% for applicant in job.applicants.all %}
                         <p>{{ applicant.user }} <a href="{% url 'hire' job.id applicant.id %}"><button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Hire</button></a></p>
                         {% endfor %}
