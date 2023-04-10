@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 <body>
-  <h1 class="message">Send A Message!</h1>
-    <form class="message-form" action="" method="POST">
+  <h1 class="review-title">Create A Review !</h1>
+    <form class="review-form" action="" method="POST">
         <!-- Django requires the following for security purposes -->
         {% csrf_token %}
         <table>
           <!-- Render the inputs inside of <tr>s & <td>s -->
           {{ form.as_table }}
         </table>
-        <input class="send-message" type="submit" value="Send" class="btn">
+        <div class="reviewBtn-div">
+        <input type="submit" value="Submit Review" class="reviewBtn">
+        </div>
       </form>
-</body>
-{% endblock %}
+{% endblock%}
