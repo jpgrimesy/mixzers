@@ -1475,6 +1475,8 @@ background: black;
 
 .center > p > #id_title, #id_job_description, #id_job_type, #id_salary, #id_schedule{
     transform: translateY(45px) !important;
+    color: white;
+    border: 2px solid white;
 }
 
 .center > p > [type="button"] {
