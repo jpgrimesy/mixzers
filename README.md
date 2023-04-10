@@ -8,8 +8,9 @@ An unforseen benefit to our app, is it allows communities across the country to 
 
 # Screenshot
 
-<img src="main_app/static/mixzer-home.png">
-<img src="main_app/static/mixzer-profile.png">
+<img src="mixzers/main_app/static/mixzer-home.png">
+
+![profile page](mixzers/main_app/static/mixzer-profile.png)
 
 # Technologies Used
 
