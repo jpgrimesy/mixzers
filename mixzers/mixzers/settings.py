@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u9hnngvn5v5oeqc$kk@2_!47d)w9o@g9&7!^!l@lv)d_x07*ei'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True if os.environ['MODE'] == 'dev' else False
 
 ALLOWED_HOSTS = []
 
@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'mixzers.urls'
+ROOT_URLCONF = 'mixzers.mixzers.urls'
 
 TEMPLATES = [
     {
@@ -137,5 +137,9 @@ LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-GDAL_LIBRARY_PATH = '/Applications/Postgres.app/Contents/Versions/15/lib/libgdal.dylib'
-GEOS_LIBRARY_PATH = '/Applications/Postgres.app/Contents/Versions/15/lib/libgeos_c.dylib'
+GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
+GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
+
+import django_on_heroku
+django_on_heroku.settings(locals())
+
