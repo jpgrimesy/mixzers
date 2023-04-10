@@ -74,7 +74,7 @@
                                         <h5 id="NJ_salary">SALARY: {{ job.salary }}</h5>
                                         <h5 id="NJ_schedule">SCHEDULE: {{ job.schedule }}</h5>
                                         <p id="NJ_description">{{ job.job_description }}</p>
-                                        <a class="a-black" href="{% url 'hire' job.id %}">Apply!</a>
+                                        <a class="a-black" href="{% url 'apply' job.id %}">Apply!</a>
                                         <a class="a-black" href="{% url 'mixzer_detail' job.author.id %}">Checkout {{ job.author.user.username }}'s Profile</a>
                                 </div>
                             </div>
