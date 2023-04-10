@@ -27,21 +27,16 @@ def get_coordinates(address):
             location = result['results'][0]['geometry']['location']
             return (location['lat'], location['lng'])
     return None
-# Create your views here.
-
-# HOME PAGE
 
 
 def home(request):
     return render(request, 'home.html')
 
 
-# ABOUT PAGE
 def about(request):
     return render(request, 'about.html')
 
 
-# SIGNUP PAGE, STILL NEED TO FIX THE REDIRECTS
 def signup(request):
     error_message = ''
     if request.method == 'POST':
@@ -70,22 +65,22 @@ def signup(request):
     return render(request, 'test.html', context)
 
 
-# PROFILE PAGE, TEST PAGE MADE JUST TO SHOW INFO
 @login_required
 def profile(request):
     user = Mixzer.objects.get(user=request.user)
     user_messages = Message.objects.filter(recipient=user)
     reviews = Review.objects.filter(reviewee=user)
     jobs = Job_Post.objects.filter(author=user)
+    applied = Job_Post.objects.filter(applicants=user)
     return render(request, 'test_profile.html', {
         'mixzer': user,
         'user_messages': user_messages,
         'reviews': reviews,
-        'jobs': jobs
+        'jobs': jobs,
+        'applied': applied
     })
 
 
-# VERIFIES EDU EMAIL
 @login_required
 def verify(request):
     user = Mixzer.objects.get(user=request.user)
@@ -200,7 +195,6 @@ class MixzerDetail(LoginRequiredMixin, DetailView):
       return context
 
 
-# JOB POST UPDATE VIEW
 class PostJobUpdate(UpdateView):
     model = Job_Post
     fields = ['title', 'job_description',
@@ -211,7 +205,6 @@ class PostJobUpdate(UpdateView):
         return reverse('post_job_update', kwargs={'job_id': self.id})
 
 
-# JOB POST DELETE VIEW
 class PostJobDelete(LoginRequiredMixin, DeleteView):
     model = Job_Post
     success_url = '/profile/'

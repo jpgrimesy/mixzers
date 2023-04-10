@@ -1333,7 +1333,9 @@ input{
     font-size: 1.2rem;
     margin: 0, 2rem;
 }
-
+#profile-btn {
+    margin-left: 0 !important;
+}
 
 #profilebtn{
     padding-left: 15rem !important;
@@ -1993,7 +1995,7 @@ a.canceltag{
         background-color: rgba(93, 121, 247, 0.35);
         color: white;
     }
-    
+}    
 /* job near you page */
 .job-deck{
     display: flex;
@@ -2045,4 +2047,8 @@ a.canceltag{
 }
 #NJ_type, #NJ_salary, #NJ_schedule{
     font-size: 15px;
+}
+
+a > .a-b {
+    color: blue !important;
 }

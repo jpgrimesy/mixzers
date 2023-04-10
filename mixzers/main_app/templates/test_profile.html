@@ -22,8 +22,12 @@
                 <li><a href="{% url 'about' %}">About</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'profile' %}">Your Profile</a></li>
-                <li><a href="{% url 'post_job' %}">Post A Job</a></li>
+                {% if user.mixzer.is_student %}
                 <li><a href="{% url 'nearby_jobs' %}" class="nearjob">Jobs Near You</a></li>
+                {% else %}
+                <li><a href="{% url 'post_job' %}">Post A Job</a></li>
+                
+                {% endif %}
                 <li><a href="{% url 'logout' %}" class='login'>Log out</a></li> 
                 {% else %}
                 <li><a href="{% url 'login' %}" class='login'>Log In</a></li> 
@@ -40,9 +44,17 @@
                         
                     {% if user %}
                         <span class="profile-text" id="profile-username">{{ mixzer.user.username }}</span>
-                        
-                        <img src="https://i.ibb.co/yQ8pNsf/screenshot-2023-03-28-at-2-02-45-pm-720.png" alt="" class="user-img">
-
+                        {% for photo in mixzer.photo_set.all %}
+                        <img class="user-img" src="{{photo.url}}">
+                        {% empty %}
+                        <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+                        {% endfor %}
+                        <form action="{% url 'add_photo' mixzer.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+                            {% csrf_token %}
+                            <input type="file" name="photo-file">
+                            <br><br>
+                            <button type="submit" class="btn">Upload Photo</button>
+                        </form>
                         <br>
                         <span class="profile-text" id="profile-first">{{ abc.user.first_name }}</span>
                         <span class="profile-text" id="profile-last">{{ abc.user.last_name }}</span>
@@ -77,7 +89,10 @@
                 <div class="middle col-sm-8">
                     {% if user_messages %}
                     {% for message in user_messages %}
-                        {{ message.content }}
+                        <p><strong>From:</strong> {{ message.sender.user }}</p>
+                        <p><i>on {{ message.created_on }}</i></p>
+                        <p>{{ message.content }}</p>
+                        <p><a href="{% url 'send_message' message.sender.id %}"><button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Reply</button></a></p>
                     {% endfor %}
                     {% else %}
                         No Messages Yet
@@ -95,7 +110,7 @@
                             No Reviews Yet
                         {% endif %}
                     </span>
-
+                  
                 </div>
                 <div class="row col-sm-12">                
 
@@ -107,32 +122,46 @@
                 
             </section>
         </div>
-        <!-- {% for photo in mixzer.photo_set.all %}
-        <img class="responsive-img card-panel" src="{{photo.url}}">
-        {% empty %}
-        <div class="card-panel teal-text center-align">No Photos Uploaded</div>
-        {% endfor %}
-        <form action="{% url 'add_photo' mixzer.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
-            {% csrf_token %}
-            <input type="file" name="photo-file">
-            <br><br>
-            <button type="submit" class="btn">Upload Photo</button>
-        </form> -->
+        {% if mixzer.is_student %}
+        <div class="middle render-jobs col-sm-4">
+            <div class="col-sm-12 a-tag">
+                <h1 class="jobsposted">Jobs Applied</h1>
+                <br>
+                {% if applied %}
+                    {% for job in applied %}
+                    <p class="job_title"><strong>Title: </strong>{{ job.title }} </p>
+                    <p class="jobtype"><strong>Job Type:</strong>{{job.job_type}}</p>
+                    <p class="jobtype"><strong>Author:</strong> <a class="a-b" color="black" href="{% url 'mixzer_detail' job.author.id %}">{{ job.author.user.username }}</a></p>
+                    <br>
+                    <br>
+                    
+                    {% endfor %}
+                    
+               
+                {% else %}
+                    No Jobs Applied Yet
+                {% endif %}
+
+            </div>
+        </div>
+        {% else %}
         <div class="middle render-jobs col-sm-4">
             <div class="col-sm-12">
                 <h1 class="jobsposted">Jobs Posted</h1>
                 <br>
-                <!-- this conditional rendering statment needs to be adjusted -->
                 {% if jobs %}
-                    <!-- {{ Job_Post }} -->
                     {% for job in jobs%}
                     <p class="job_title"><strong>Title: </strong>{{ job.title }} </p>
                     <p class="jobtype"><strong>Job Type:</strong>{{job.job_type}}</p>
+                    <p><strong>Applicants:</strong></p>
+                        {% for applicant in job.applicants.all %}
+                        <p>{{ applicant.user }} <a href="{% url 'hire' job.id applicant.id %}"><button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Hire</button></a></p>
+                        {% endfor %}
                     <a class='edittag' href="{% url 'post_job_update' job.id %}"><button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Edit Job</button></a>
                     <a class='deletetag' href="{% url 'post_job_delete' job.id %}"><button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Delete Job</button></a>
                     <br>
                     <br>
-
+                    
                     {% endfor %}
                     
                
@@ -141,12 +170,8 @@
                 {% endif %}
 
             </div>
-            <!-- <button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Edit Jobs</button> -->
-
-
-
         </div>
-
+        {% endif %}
     </div>
     
     
