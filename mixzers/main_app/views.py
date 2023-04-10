@@ -155,7 +155,7 @@ def post_job(request):
 @login_required
 def nearby_jobs(request):
     user_location = get_coordinates(request.user.mixzer.location)
-    radius = 20
+    radius = 10
     if request.method == 'POST':
         form = ChangeRadius(request.POST)
         if form.is_valid():
