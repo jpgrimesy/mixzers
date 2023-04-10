@@ -38,7 +38,7 @@
 <!--- CONTENT GOES HERE -->
     {% if user %}  
         {% if jobs %}        
-            <h1 id="NJ_h1" >Jobs found within {{ radius }} miles of {{ request.user }}</h1>
+            <h1 id="NJ_h1" >Jobs found within {{ radius }} miles of {{ request.user.mixzer.location }}</h1>
         {% else %}
             <h1 id="NJ_h1">No Jobs Near {{ user.mixzer.location }}</h1>
         {% endif %}
