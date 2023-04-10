@@ -347,7 +347,7 @@ body{
     font-size: 15rem;
     margin: 0 auto;
     margin-top: 8rem;
-    margin-left: 9rem;
+    margin-left: 5rem;
 }
   .mixside {
     display: inline-block;
@@ -366,6 +366,11 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+  }
+  @media (max-width: 700px){
+    .globe-div{
+        font-size: 10px !important;
+    }
   }
   .globe{
     height: 100%;
@@ -654,21 +659,61 @@ text-align: center;
 }
 .introjoin{
    font-size: 3rem;
-   margin-left: 30rem;
-   color: blue;
-   text-decoration: underline;
+   margin-left: 28rem;
+   background-color: rgb(0, 0, 0);
+   color: rgb(255, 255, 255);
    opacity: 0;
    animation: signShow 2s ease-out forwards;
    animation-delay: 39s;
    -webkit-text-stroke-color: 2px rgb(249, 254, 252);
+   margin-top: 3rem;
+   padding: 0.5rem;
+}
+.introjoin:hover{
+    background-color: rgba(49, 66, 217, 0.15);
+    color: blue;
+    
+}
+@media screen and (max-width: 850px) {
+    .intromixzers {
+        font-size: 2rem;
+    }
+    .submixzer {
+        font-size: 1rem;
+        margin-top: 2rem;
+    }
+    .introjoin {
+        margin-left: 0;
+        margin-top: 4rem;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1100px) {
+    .intromixzers {
+        font-size: 4rem;
+    }
+    .submixzer {
+        font-size: 2rem;
+        margin-top: -2.5rem;
+    }
+    .introjoin {
+        margin-left: 20%;
+        margin-top: 2rem;
+    }
+}
+@media screen and (min-width: 992px) {
+    .intromixzers {
+        font-size: 10rem;
+    }
+    .submixzer {
+        font-size: 4rem;
+        margin-top: -5rem;
+    }
+    .introjoin {
+        margin-left: 28rem;
+        margin-top: 3rem;
+    }
 }
 
-/* .college{
-    color: rgb(6, 118, 81);
-}
-.world{
-    color: rgb(11, 18, 142);
-} */
   /*************** KEYFRAMES ***********/
   @keyframes slide-from-left {
     0% {
@@ -1145,6 +1190,30 @@ background-color: #000000
     animation-delay: 5s;
 
 }
+@media (max-width: 910px) {
+    .divlogins{
+        height: auto;
+        width: auto;
+        margin: 2rem auto;
+        margin-left: -10rem;
+    }
+
+    .login-image{
+        height: 30rem;
+        width: 25rem;
+        margin: 0 auto;
+    }
+
+    .login-mixzer{
+        font-size: 4rem;
+        margin-left: 15rem;
+    }
+}
+@media (max-width: 600px) {
+    .login-image{
+        display: none;
+    }
+}
 @keyframes login{
     0%{
         color: black;
@@ -1175,6 +1244,10 @@ background-color: #000000
     border: 0;
     margin-left: 4rem;
 }
+.loginBtn:hover {
+    background-color: rgba(9, 66, 188, 0.35);
+    color: white;
+}
 .login-sign{
     color: black;
     margin-top: -4rem;
@@ -1203,9 +1276,13 @@ form{
 }
 #id_username{
     margin-left: 3.3rem;
+    height: 2rem;
+    width: 10rem;
 }
 #id_password{
     margin-left: 3.2rem !important;
+     height: 2rem;
+    width: 10rem;
 }
 /****************** SIGN UP PAGE ***********************/
 .signup-div{
@@ -1231,6 +1308,36 @@ form{
     animation-delay: 4s;  
 
 }
+@media (max-width: 768px) {
+    .signup-div{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .signup-image{
+        height: 25rem;
+        width: 30rem;
+        margin-bottom: 2rem;
+    }
+
+    .signup-form{
+        height: auto;
+        width: 80%;
+        margin: 0;
+    }
+}
+@media (max-width: 950px) {
+    .signup-image{
+        height: 25rem;
+        width: 30rem;
+    }
+}
+@media (max-width: 480px) {
+    .signup-form{
+        width: 100%;
+    }
+}
+
 .helptext{
     display: none;
 }
@@ -1268,6 +1375,10 @@ input{
     border: 0;
     margin-left: 10rem;
     margin-top: 1rem;
+}
+.signupbtn:hover {
+    background-color: rgba(9, 66, 188, 0.35);
+    color: white;
 }
 
 
@@ -1400,13 +1511,17 @@ input{
     margin-top: 2rem;
 }
 .editBtn{
-    margin-left: 15rem;
-    margin-top: 2rem;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
     font-size: 1rem;
-    padding: 5px;
-    color: black;
-    border: 8px double rgb(31, 11, 184)
-
+    padding: 1rem;
+    width: 10rem;
+    background-color: rgba(86, 177, 207, 0.35);
+    animation: messageBtn 2s ease-in forwards;
+    animation-delay: 5s;
 }
 .edit-title{
     text-align: center;
@@ -1446,8 +1561,18 @@ input{
     text-align: center;
     font-size: 2rem;
     padding: 7px;
-    margin-left: 24rem;
-    border: 8px double rgb(153, 0, 28)
+    margin-left: 20rem;
+    animation: deleteKey 1s ease-in forwards; 
+    animation-delay: 5s;
+}
+@keyframes deleteKey {
+    0%{
+        background-color: rgba(255, 255, 255, 0.35);
+    }
+    100%{
+        background-color: rgba(227, 30, 30, 0.35);
+        color: white;
+    }
 }
 .cancelbutton{
     text-align: center;
@@ -1455,7 +1580,17 @@ input{
     padding: 7px;
     color: black;
     margin-left: 2rem;
-    border: 8px double rgb(17, 1, 135)
+    animation: cancelKey 1s ease-in forwards;
+    animation-delay: 5s;
+}
+@keyframes cancelKey    {
+    0%{
+        background-color: white;
+    }
+    100% {
+        background-color: rgba(19, 47, 201, 0.35);
+        color: white
+    }
 }
 a.canceltag{
     padding-bottom: 11rem;
@@ -1469,14 +1604,36 @@ a.canceltag{
     align-items: center;
 
 }
+@media (max-width: 800px) {
+    .deletebtndiv {
+    flex-direction: column;
+    margin-left: -20rem;
+    }
+    }
+    @media (max-width: 470px) {
+        .deletebtndiv {
+        flex-direction: column;
+        margin-left: -30rem;
+        }
+        }
+        @media (max-width: 310px) {
+            .deletebtndiv {
+            flex-direction: column;
+            margin-left: -10rem;
+            }
+            }
 /************************* MIXZERS DETAIL PAGE ********************/
 .detail-background{
+    display: flex;
     margin-top: -1rem;
     margin-right: -1rem;
     margin-left: -1rem;
     height: 17rem;
     background-image: url('https://images.wallpaperscraft.com/image/single/books_shelf_collection_119979_1600x900.jpg');
-   
+    background-size: cover;
+    width: 200%;
+    height: 10rem;
+  
 }
 .mixzer-img{
     border-radius: 50%;
@@ -1529,14 +1686,70 @@ a.canceltag{
     margin-top: -12rem;
     margin-left: 25rem;
 }
+@media (max-width: 1000px) {
+    .detail-user{
+        margin-left: 20rem;
+        font-size: 50px;
+    }
+    
+    .mixzer-location{
+        margin-left: 20rem;
+        font-size: 16px;
+        margin-top: -2rem;
+    }
+    
+    .mixzer-interaction{
+        margin-left: 5rem;
+    }
+    
+    .mixzer-reviews{
+        width: 25rem;
+        margin-top: 1rem;
+    }
+    
+    .mixzer-jobs{
+        width: 45rem;
+        margin-left: 15rem;
+        margin-top: -8rem;
+        height: 23rem;
+    }
+}
+@media (max-width: 700px) {
+    .detail-user{
+        margin-left: 20rem;
+        font-size: 40px;
+    }
+    
+    .mixzer-location{
+        margin-left: 20rem;
+        font-size: 14px;
+        margin-top: -1rem;
+    }
+    
+    .mixzer-interaction{
+        margin-left: 2rem;
+    }
+    
+    .mixzer-reviews{
+        width: 20rem;
+        margin-top: 1rem;
+    }
+    
+    .mixzer-jobs{
+        width: 35rem;
+        margin-left: 10rem;
+        margin-top: -8rem;
+        height: 20rem;
+    }
+}
 @keyframes loginOne{
     0%{
         color: black;
-        border: 2px solid white
+       
     }
     100%{
         color: white;
-        border: 2px solid white
+     
     }
 
 }
@@ -1545,4 +1758,192 @@ a.canceltag{
 }
 .mixzer-about{
    text-align: center;
+}
+@media (max-width: 600px) {
+    .detail-background{
+        height: 8rem;
+    }
+    .mixzer-img{
+        height: 7rem;
+        width: 7rem;
+        margin-top: -4rem;
+        margin-left: 1rem;
+    }
+    .detail-user{
+        margin-left: 10rem;
+        margin-top: -6rem;
+        font-size: 30px;
+    }
+    .mixzer-location{
+        margin-left: 11rem;
+        margin-top: -1rem;
+        font-size: 14px;
+    }
+    .mixzer-interaction{
+        margin-left: 1rem;
+       margin-bottom: 4rem;
+    }
+    .mixzer-reviews{
+        width: 25rem;
+        
+    }
+    .mixzer-jobs{
+        margin-top: -5rem;
+        margin-left: -5rem;
+        height: 15rem;
+    }
+    .user-review{
+        padding: 0;
+        display: flex;
+        align-self: start;
+        margin-top: -5rem
+       
+        
+    }
+    .user-message{
+        padding: 0;
+        display: flex;
+        align-self: start;
+        margin-top: -5rem
+    }
+}
+@media (max-width: 337px) {
+    .detail-background{
+        height: 8rem;
+    }
+    .mixzer-img{
+        height: 7rem;
+        width: 7rem;
+        margin-top: -4rem;
+        margin-left: 1rem;
+    }
+    .detail-user{
+        margin-left: 10rem;
+        margin-top: -6rem;
+        font-size: 30px;
+    }
+    .mixzer-location{
+        margin-left: 11rem;
+        margin-top: -1rem;
+        font-size: 14px;
+    }
+    .mixzer-interaction{
+        margin-left: 1rem;
+       margin-bottom: 4rem;
+    }
+    .mixzer-reviews{
+        width: 25rem;
+        
+    }
+    .mixzer-jobs{
+        margin-top: -5rem;
+        margin-left: -10rem;
+        height: 15rem;
+    }
+    .user-review{
+        padding: 0;
+        display: flex;
+        align-self: start;
+        margin-top: -5rem
+       
+        
+    }
+    .user-message{
+        padding: 0;
+        display: flex;
+        align-self: start;
+        margin-top: -5rem
+    }
+}
+/******************REVIEW*************/
+.review-title{
+    text-align: center;
+    color: black;
+    animation: reviewAnimate 2s ease-in forwards;
+    animation-delay: 5s;
+    padding-top: 4rem;
+}
+.review-form{
+    display: flex;
+    flex-direction: column;
+    color: black;
+    animation: reviewAnimate 2s ease-in forwards;
+    animation-delay: 5s;
+}
+@media (max-width: 700px){
+    .review-form{
+        margin-left: -5rem;
+    }
+}
+@keyframes reviewAnimate    {
+    0%{
+        color: #000000;
+    }
+    100%{
+        color: white;
+    }
+}
+.reviewBtn{
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    font-size: 1rem;
+    padding: 1rem;
+    width: 10rem;
+    background-color: rgba(86, 177, 207, 0.35);
+    animation: messageBtn 2s ease-in forwards;
+    animation-delay: 5s;
+}
+/****************MESSAGE**********/
+.message{
+    text-align: center;
+    color: black;
+    animation: message 2s ease-in forwards;
+    animation-delay: 5s
+}
+.message-form{
+    color: black;
+    animation: message 2s ease-in forwards;
+    animation-delay: 5s;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+@media (max-width: 750px){
+    .message-form{
+        margin-left: -5rem
+    }
+}
+@keyframes message {
+    0%{
+        color: white;
+    }
+    100%{
+        color: white;
+    }
+}
+.send-message{
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    font-size: 1rem;
+    padding: 1rem;
+    width: 10rem;
+    background-color: rgba(86, 177, 207, 0.35);
+    animation: messageBtn 2s ease-in forwards;
+    animation-delay: 5s;
+}
+@keyframes messageBtn   {
+    0%{
+        background-color: rgba(86, 177, 207, 0.35); 
+    }
+    100%{
+        background-color: rgba(93, 121, 247, 0.35);
+        color: white;
+    }
 }
