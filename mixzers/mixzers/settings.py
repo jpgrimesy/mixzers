@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+SECRET_KEY = 'django-insecure-u9hnngvn5v5oeqc$kk@2_!47d)w9o@g9&7!^!l@lv)d_x07*ei'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.environ['MODE'] == 'dev' else False
@@ -88,6 +88,7 @@ DATABASES = {
         'PASSWORD': os.environ['BIT_PASSWORD'],
         'HOST': os.environ['BIT_HOST'],
         'PORT': os.environ['BIT_PORT']
+
     }
 }
 
@@ -141,3 +142,4 @@ GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
 
 import django_on_heroku
 django_on_heroku.settings(locals())
+

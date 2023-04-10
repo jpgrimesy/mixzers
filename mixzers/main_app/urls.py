@@ -11,9 +11,6 @@ urlpatterns = [
     path('profile/delete/',
          views.delete_user, name='mixzer_delete'),
 
-    # path to account profile. we need to make a test
-    # page of all the information for others to view the specifc user
-    
     path('signup/', views.signup, name='signup'),
     path('verify/', views.verify, name="verify"),
     path('send-message/<int:user_id>/', views.send_message, name='send_message'),

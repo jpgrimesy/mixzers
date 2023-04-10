@@ -1,39 +1,116 @@
-{% extends 'base.html' %}
-{% block content %}
+{% load static %}
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Jobs Near You</title>
 
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Your Profile</a></li>
+                    
+                    {% if user.mixzer.is_student %}
+                    <li><a href="{% url 'nearby_jobs' %}" class="nearjob">Jobs Near You</a></li>
+                    {% else %}
+                    <li><a href="{% url 'post_job' %}">Post A Job</a></li>
+                    
+                    {% endif %}
+                {% else %}
+                    <li><a href="{% url 'login' %}" class='login'>Log In</a></li> 
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
 <!--- CONTENT GOES HERE -->
-<h1>Jobs found within {{ radius }} miles of {{ request.user }}</h1>
-<form method="POST" class="form-inline">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary mb-2">Search</button>
-</form>
-{% for job in jobs %}
-    <p>{{ job.title }}</p>
-    <p>{{ job.schedule }}</p>
-    <p>{{ job.applicants.all }}</p>
-    <p><a href="{% url 'mixzer_detail' job.author.id %}">{{ job.author.user.username }}</a></p>
-    {% if job.applicants.all %}
-    {% for applicant in job.applicants.all %}
-    <p>{{ applicant.user.username }}</p>
-    <a href="{% url 'hire' job.id applicant.id%}">hire</a>
-    {% endfor %}
-    {% else %}
-    <p>No applicants</p>
+    {% if user %}  
+        {% if jobs %}        
+            <h1 id="NJ_h1" >Jobs found within {{ radius }} miles of {{ request.user }}</h1>
+        {% else %}
+            <h1 id="NJ_h1">No Jobs Near {{ user.mixzer.location }}</h1>
+        {% endif %}
+
+        <!-- <p class="col-12"> --to change your location edit it from your profile page --</p> -->
+       
+            <div class="search_line">
+           
+              <form method="POST" class="form-inline">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit" class="btn btn-primary mb-2">Search</button>
+              </form>
+            </div>
+    
+        <hr>
+        <!-- title = models.CharField(max_length=250)
+            job_description = models.TextField(max_length=250)
+            job_type = models.CharField(max_length=250)
+            salary = models.CharField(max_length=250)
+            schedule = models.CharField(max_length=250)
+            applicants = models.ManyToManyField(Mixzer, related_name='applicants')
+            candidates = models.ManyToManyField(Mixzer, related_name='candidates')
+            author = models.ForeignKey(Mixzer, on_delete=models.CASCADE, related_name='author') -->
+        {% if jobs %}
+            <div class="job-deck">
+                    {% for job in jobs %}
+                    <div class="card-deck job-card col-lg-3 col-sm-10 col-md-6">
+                            <div class="card col-12">
+                                <div class="card-body">
+                                        <h4 id="NJ_title">{{ job.title }}</h4>
+                                        <h5 id="NJ_type">JOB TYPE: {{ job.job_type }}</h5>
+                                        <h5 id="NJ_salary">SALARY: {{ job.salary }}</h5>
+                                        <h5 id="NJ_schedule">SCHEDULE: {{ job.schedule }}</h5>
+                                        <p id="NJ_description">{{ job.job_description }}</p>
+                                        <!-- <p>{{ job.applicants.all }}</p> -->
+                                        <a class="a-black" href="{% url 'mixzer_detail' job.author.id %}">Checkout {{ job.author.user.username }}'s Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor%}
+                </div>
+            </div>
+        {% endif %}
+            <hr>
+
+            <!-- {% if job.applicants.all %} -->
+            <!-- I like this, but I think it belongs on the person's personal profile page not where anyone can see it -->
+            <!-- {% for applicant in job.applicants.all %} -->
+            <!-- <p>{{ applicant.user.username }}</p> -->
+            <!-- <a href="{% url 'hire' job.id applicant.id%}">hire</a> -->
+            <!-- {% endfor %} -->
+            {% if job.applicants.all %}
+                <p>Someone has applied</p> 
+            {% else %}
+                <p>No applicants</p>
+            {% endif %}
+
+            {% if job.candidates.all %}
+                {% for candidate in job.candidates.all %}
+                    <p>{{ candidate.user.username }}</p>
+                {% endfor %}
+            {% else %}
+                <p>No candidates</p>
+            {% endif %}
+            <a href="{% url 'apply' job.id %}">Apply</a>
+    
+        {% endif %}
+
     {% endif %}
-    {% if job.candidates.all %}
-    {% for candidate in job.candidates.all %}
-    <p>{{ candidate.user.username }}</p>
-    {% endfor %}
-    {% else %}
-    <p>No candidates</p>
-    {% endif %}
-    <a href="{% url 'apply' job.id %}">Apply</a>
-   
-
-{% endfor %}
 
 
-{% endblock %}
+
+</body>
+</html>

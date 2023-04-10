@@ -6,18 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
 </head>
-<body>
-    <form action="" method="POST">
-        <!-- Django requires the following for security purposes -->
-        {% csrf_token %}
-        <table>
-          <!-- Render the inputs inside of <tr>s & <td>s -->
-            {{ add_form.as_table }}
-            {{ addtl_form.as_table }}
-            {{ college_form.as_table }}
-        </table>
-        <input type="submit" value="Submit!" class="btn">
+<body >
+    <div class="edit-profile">
+      <form id="edit-profile-form" action="" method="POST">
+          <!-- Django requires the following for security purposes -->
+          {% csrf_token %}
+          <table>
+            <!-- Render the inputs inside of <tr>s & <td>s -->
+              {{ add_form.as_table }}
+              {{ addtl_form.as_table }}
+              {{ college_form.as_table }}
+          </table>
+          <input type="submit" value="Submit!" class="btn edit-profile-btn">
       </form>
+
+    </div>
 </body>
 <br>
 <br>

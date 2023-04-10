@@ -16,18 +16,14 @@
 </head>
 <body id="profile-test">
     <header>
-        <nav class="nav-bar">
+        <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'profile' %}">Your Profile</a></li>
-                {% if user.mixzer.is_student %}
-                <li><a href="{% url 'nearby_jobs' %}" class="nearjob">Jobs Near You</a></li>
-                {% else %}
                 <li><a href="{% url 'post_job' %}">Post A Job</a></li>
-                
-                {% endif %}
+                <li><a href="{% url 'nearby_jobs' %}" class="nearjob">Jobs Near You</a></li>
                 <li><a href="{% url 'logout' %}" class='login'>Log out</a></li> 
                 {% else %}
                 <li><a href="{% url 'login' %}" class='login'>Log In</a></li> 
@@ -41,34 +37,24 @@
                 <div class="left col-sm-8">
                     <!-- <div class="middle">
                         <div class="inner"> -->
-                        
                     {% if user %}
-                        <span class="profile-text" id="profile-username">{{ mixzer.user.username }}</span>
-                        {% for photo in mixzer.photo_set.all %}
-                        <img class="user-img" src="{{photo.url}}">
-                        {% empty %}
-                        <div class="card-panel teal-text center-align">No Photos Uploaded</div>
-                        {% endfor %}
-                        <form action="{% url 'add_photo' mixzer.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
-                            {% csrf_token %}
-                            <input type="file" name="photo-file">
-                            <br><br>
-                            <button type="submit" class="btn">Upload Photo</button>
-                        </form>
+                        <span class="profile-text" id="profile-username">{{ abc.user.username }}</span>
+                        
+                        <img src="https://i.ibb.co/yQ8pNsf/screenshot-2023-03-28-at-2-02-45-pm-720.png" alt="" class="user-img">
+
                         <br>
                         <span class="profile-text" id="profile-first">{{ abc.user.first_name }}</span>
-                        <span class="profile-text" id="profile-last">{{ abc.user.last_name }}</span>
+                        <span class="profile-text" id="profile-first">{{ abc.user.last_name }}</span>
                         <br>
-                        <span class="profile-text" id="profile-location">{{ mixzer.location }}</span>
+                        <span class="profile-text" id="profile-location">{{ abc.location }}</span>
                         <br>
-                        <span class="profile-text" id="profile-email">{{ mixzer.user.email }}</span>
+                        <span class="profile-text" id="profile-email">{{ abc.user.email }}</span>
                         <br>
                         <span class="profile-text" id="profile-student">
-                            {% if mixzer.is_student %}
-                                    <p>Attending {{ mixzer.college }}</p>
+                            {% if is_student and college %}
+                                    <p>Attending {{ college }}</p>
                             {% else %}
                                 Not Verified as Student
-                                <a href="{% url 'verify' %}">verify</a><br />
                             {% endif %}
                             
                         </span>
@@ -81,7 +67,7 @@
                         {% endif %}
                         {% endif %}                        
                         <br>
-                    
+                    <a href="{% url 'verify' %}">verify</a><br />
                         <!-- </div>
                     </div> -->
                 </div>
@@ -89,10 +75,7 @@
                 <div class="middle col-sm-8">
                     {% if user_messages %}
                     {% for message in user_messages %}
-                        <p><strong>From:</strong> {{ message.sender.user }}</p>
-                        <p><i>on {{ message.created_on }}</i></p>
-                        <p>{{ message.content }}</p>
-                        <p><a href="{% url 'send_message' message.sender.id %}"><button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Reply</button></a></p>
+                        {{ message.content }}
                     {% endfor %}
                     {% else %}
                         No Messages Yet
@@ -110,7 +93,7 @@
                             No Reviews Yet
                         {% endif %}
                     </span>
-                  
+
                 </div>
                 <div class="row col-sm-12">                
 
@@ -122,46 +105,22 @@
                 
             </section>
         </div>
-        {% if mixzer.is_student %}
-        <div class="middle render-jobs col-sm-4">
-            <div class="col-sm-12 a-tag">
-                <h1 class="jobsposted">Jobs Applied</h1>
-                <br>
-                {% if applied %}
-                    {% for job in applied %}
-                    <p class="job_title"><strong>Title: </strong>{{ job.title }} </p>
-                    <p class="jobtype"><strong>Job Type:</strong>{{job.job_type}}</p>
-                    <p class="jobtype"><strong>Author:</strong> <a class="a-b" color="black" href="{% url 'mixzer_detail' job.author.id %}">{{ job.author.user.username }}</a></p>
-                    <br>
-                    <br>
-                    
-                    {% endfor %}
-                    
-               
-                {% else %}
-                    No Jobs Applied Yet
-                {% endif %}
 
-            </div>
-        </div>
-        {% else %}
         <div class="middle render-jobs col-sm-4">
             <div class="col-sm-12">
                 <h1 class="jobsposted">Jobs Posted</h1>
                 <br>
+                <!-- this conditional rendering statment needs to be adjusted -->
                 {% if jobs %}
+                    <!-- {{ Job_Post }} -->
                     {% for job in jobs%}
                     <p class="job_title"><strong>Title: </strong>{{ job.title }} </p>
                     <p class="jobtype"><strong>Job Type:</strong>{{job.job_type}}</p>
-                    <p><strong>Applicants:</strong></p>
-                        {% for applicant in job.applicants.all %}
-                        <p>{{ applicant.user }} <a href="{% url 'hire' job.id applicant.id %}"><button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Hire</button></a></p>
-                        {% endfor %}
                     <a class='edittag' href="{% url 'post_job_update' job.id %}"><button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Edit Job</button></a>
                     <a class='deletetag' href="{% url 'post_job_delete' job.id %}"><button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Delete Job</button></a>
                     <br>
                     <br>
-                    
+
                     {% endfor %}
                     
                
@@ -170,8 +129,12 @@
                 {% endif %}
 
             </div>
+            <!-- <button type="submit" class="btn col-sm-12 btn-primary" id="profile-btn">Edit Jobs</button> -->
+
+
+
         </div>
-        {% endif %}
+
     </div>
     
     

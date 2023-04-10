@@ -1,28 +1,22 @@
 body::-webkit-scrollbar{
     display: none;
+    width: 100vw;
 }
 header{
-    background-color: #000000;
-    height: 4.5rem;
-    margin: -2rem;
-    margin-bottom: 1rem;
-    margin-right: -0.5rem;
+   background-color: #000000;
+   margin: 2rem;
    
 
 }
-footer{
-    text-align: center;
-    background-color: #000000;
-    color: white;
-    height: 4rem;
-    margin: -1 rem;
-    margin-top: -4rem;
-    position: fixed;
-    width: 90rem;
-    margin-left: -0.5rem;
-}
-.rights{
-    padding-top: 2rem;
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    font-size: 1.5vw;
+  
+   
 }
 
 /** NAVIGATION **/
@@ -30,53 +24,36 @@ a{
     color: white;
     display: flex;
     flex-direction: row; 
-    justify-content: space-between;
-    padding-top: 1rem;
-
-    padding-top: 3rem;
-    padding-right: 2rem;
+    justify-content: center;
+    padding: 20px;
     text-decoration: none;
-    padding-left: 1rem;
 }
 ul{
     list-style: none;
     display: flex;
-    flex-direction: row;    
-
+    padding: 0;
+    margin: 0;
 }
+
 
 /** BRAND **/
 
-.MixZers{
-    text-align: center;
-    font-size: 3rem;
-    background-color: #000000;
-    margin: -1rem;
-    height: 3rem;
-    letter-spacing: .5rem;
-    color: rgb(255, 255, 255);
-    margin-top: -3rem;
-    margin-right: -0.5rem;
-    padding-left: 65rem;
-    margin-top: -4rem;
-    
-}
-
 /** TOP SQUARE CONTENT **/
-.top-square{
+/* .top-square{
     background-image: url('https://www.intellis.io/hubfs/Facility-Condition-Assessment-Capital-Planning-Colleges-Universities.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 100px 0px 200px;
     margin-left: -0.5rem;
     margin-right: -0.5rem;
-    height: 25rem;
+    height: 50vh;
     margin-top: -4.1rem !important;
     padding-bottom: 5rem;
     opacity: 0.8;
     font-size: 3rem;
-}
-.college{
+    border: 3px solid black;
+} */
+/* .college{
    margin-left: 10rem;
     padding-top: 8rem;
 }
@@ -86,16 +63,14 @@ ul{
 .students{
     margin-left: 20rem;
     margin-top: -2rem;
-}
+} */
 
-
-
-/** MIDDLE SQUARE CONTENT **/
-.middle-square{
+/* * MIDDLE SQUARE CONTENT *
+ .middle-square{
     background-image: url('https://www.gannett-cdn.com/-mm-/83e081eae80cd2848af52df6da1060d621468f19/c=0-111-2120-1303/local/-/media/2020/02/10/USATODAY/usatsports/MotleyFool-TMOT-53b92eeb-cash-handing.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    /* margin: -2.7rem; */
+    margin: -2.7rem;
     height: 35rem;
     margin-right: -0.5rem;
     font-size: 2.5rem;
@@ -103,7 +78,7 @@ ul{
     opacity: 0.8;
     text-align: right;
      margin-top: 0.1rem !important;
-}
+} 
 .infoCreate{
     padding-top: 6rem;
     padding-right: 1rem;
@@ -114,10 +89,10 @@ ul{
 }
 .earn{
     padding-right: 8rem;
-}
+} */
 
 /** BOTTOM SQUARE CONTENT ***/
-.bottom-square{
+/* .bottom-square{
     margin: 1rem;
     height: 30rem;
     margin-left: -.5rem;
@@ -200,7 +175,7 @@ p{
     object-fit: contain;
 }
 /** BRAND **/
-.MixZers{
+/* .MixZers{
     text-align: center;
     font-size: 3rem;
     background-color: #000000;
@@ -213,10 +188,10 @@ p{
     padding-left: 65rem;
     margin-top: -4rem;
     
-}
+} */
 
 /** TOP SQUARE CONTENT **/
-.top-square{
+/* .top-square{
     background-image: url('https://www.intellis.io/hubfs/Facility-Condition-Assessment-Capital-Planning-Colleges-Universities.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -239,12 +214,12 @@ p{
 .students{
     margin-left: 20rem;
     margin-top: -2rem;
-}
+} */
 
 
 
 /** MIDDLE SQUARE CONTENT **/
-.middle-square{
+/* .middle-square{
     background-image: url('https://www.gannett-cdn.com/-mm-/83e081eae80cd2848af52df6da1060d621468f19/c=0-111-2120-1303/local/-/media/2020/02/10/USATODAY/usatsports/MotleyFool-TMOT-53b92eeb-cash-handing.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -267,10 +242,10 @@ p{
 }
 .earn{
     padding-right: 8rem;
-}
+} */
 
 /** BOTTOM SQUARE CONTENT ***/
-.bottom-square{
+/* .bottom-square{
     margin: 1rem;
     height: 30rem;
     margin-left: -.5rem;
@@ -351,149 +326,753 @@ p{
     width: 100%;
     height : 100%;
     object-fit: contain;
-}
+}  */
 
-
-
-
-/** ABOUT SECTION **/
-.mix{
-    color: #073149;
-}
-.z{
-    color: aquamarine;
-}
-.one{
-background-image: linear-gradient(90deg, rgb(91, 236, 246), rgb(79, 70, 229));
-height: 40rem;
-margin-top: -6rem;
-margin-left: -0.5rem;
-margin-right: -0.5rem;
-padding-bottom: 8rem;
-color: white;
-}
-.about-title{
-    padding-top: 7rem;
-    font-size: 90px;
+/*********** NEW DESIGN ********/
+body{
+    animation: background-change 1s ease-out forwards;
+    animation-delay: 4s;
+ }
+.mixme {
     text-align: center;
+    position: absolute;
+    font-size: 15rem;
+    margin: 0 auto;
+    margin-top: 8rem;
+    margin-left: 5rem;
 }
-.about{
-    font-size: 35px;
-    text-align: center;
-    color: black;
+  .mixside {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slide-from-left 4s ease-in-out;
+  }
+  .zers{
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slide-from-right 4s ease-in-out;
+  }
+  .globe-div{
     display: flex;
-    padding-left: 5rem;
-    padding-right: 5rem;
     justify-content: center;
-}
+    align-items: center;
+    height: 100vh;
+  }
+  @media (max-width: 700px){
+    .globe-div{
+        font-size: 10px !important;
+    }
+  }
+  .globe{
+    height: 100%;
+    width: 100%;
+    animation: showImage 35s ;
+    animation-delay: 4s;
+    opacity: 0;
+  }
 
-.three{
-    height: 80rem;
-    background-image: linear-gradient(90deg, rgb(91, 236, 246), rgb(79, 70, 229));
-    margin-left: -0.5rem;
-    margin-right: -0.5rem;
-    border-top: 20px solid whitesmoke;
+.pin1{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    margin-bottom: 4rem;
+    left: 20%;
+    opacity: 0;
+    animation: firstpin 29s ease-out ;
+    animation-delay: 7s;    
+    color: white;
+
+}
+#guadalajara{
+    padding-bottom: 2rem ;
+}
+.pin{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    margin-top: 5rem;
+    color: white;
+    left: 50%;
+    opacity: 0;
+    animation: secondpin 28s ease-out ;
+    animation-delay: 9s;
     
 }
-
-.meet-team{
+.pin2{
     display: flex;
-    padding-top: 3rem;
+    position: absolute;
+    height: 4rem;
+    margin-bottom: 12rem;
+    margin-right: 4rem;
+    left: 20%;
+    opacity: 0;
+    animation: thirdpin 27s ease-out ;
+    animation-delay: 10s;
+    color: white;
+
 }
-.about-team{
-    padding-top: 2rem;
-    font-size: 90px;
-    text-align: center;
-    margin-right: -0.5rem;
-    margin-left: -0.5rem;
+#brigham{
+    padding-bottom: 3rem;
+}
+.pin3{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    margin-bottom: 23rem;
+    left: 10%;
+    opacity: 0;
+    animation: fourthpin 26s ease-out ;
+    animation-delay: 11s;
+    color: white;
+
+}
+#alaska{
+    padding-bottom: 3rem;
+}
+.pin4{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    margin-top: 10rem;
+    left: 30%;
+    opacity: 0;
+    animation: fifthpin 25s ease-out ;
+    animation-delay: 12s;
+    color: white;
+
+}
+.pin5{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    margin-bottom: 32rem;
+    left: 32%;
+    opacity: 0;
+    animation: sixthpin 24s ease-out ;
+    animation-delay: 13s;
+    color: white;
+
+}
+#ili{
+    padding-bottom: 3rem;
+}
+.pin6{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    margin-bottom: 30rem;
+    left: 37%;
+    opacity: 0;
+    animation: seventhpin 23s ease-out ;
+    animation-delay: 14s;
+    color: white;
+
+}
+.pin8{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    top: 75%;
+    left: 50%;
+    opacity: 0;
+    animation: eigthpin 22s ease-out ;
+    animation-delay: 15s;
+    color: white;
+
+}
+#botswana{
+   top: 78%
+}
+.pin9{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    margin-bottom: 12rem;
+    margin-right: 4rem;
+    left: 50%;
+    opacity: 0;
+    animation: ninthpin 21s ease-out ;
+    animation-delay: 16s;
     color: white;
 }
-
-.meet-team{
+#taras{
+    padding-bottom: 3rem;
+}
+.pin0{
     display: flex;
-    justify-content: space-around;
+    position: absolute;
+    height: 4rem;
+    margin-top: 5rem;
+    left: 50%;
+    opacity: 0;
+    animation: tenthpin 20s ease-out ;
+    animation-delay: 17s;
+    color: white;
+
+}
+#peking{
+    left: 60%
+}
+.pin11{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    margin-bottom: 12rem;
+    margin-right: 4rem;
+    left: 70%;
+    opacity: 0;
+    animation: pineleven 19s ease-out ;
+    animation-delay: 18s;
+    color: white;
+
+}
+#indian{
+    padding-bottom: 3rem;
+}
+.pin12{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    margin-bottom: 5rem;
+    margin-right: 4rem;
+    left: 63%;
+    opacity: 0;
+    animation: pintwelve 18s ease-out ;
+    animation-delay: 19s;
+    color: white;
+
+}
+.pin13{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    margin-bottom: 24rem;
+    margin-right: 4rem;
+    left: 80%;
+    opacity: 0;
+    animation: pinthirteen 17s ease-out ;
+    animation-delay: 20s;
+    color: white;
+
+}
+#moscow{
+    padding-bottom: 3rem;
+}
+.pin14{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    top: 80%;
+    margin-right: 4rem;
+    left: 75%;
+    opacity: 0;
+    animation: pinfourteen 16s ease-out ;
+    animation-delay: 21s;
+    color: white;
+
+}
+#melbourne{
+   top: 75%;
+}
+.pin15{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    top: 63%;
+    margin-right: 4rem;
+    left: 74%;
+    opacity: 0;
+    animation: pinfifteen 15s ease-out ;
+    animation-delay: 22s;
+    color: white;
+
+}
+#philippine{
+    top: 59%
+}
+.pin16{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    top: 86%;
+    margin-right: 4rem;
+    left: 86.5%;
+    opacity: 0;
+    animation: pinsixteen 14s ease-out ;
+    animation-delay: 23s;
+    color: white;
+
+}
+#waikato{
+    left: 73% !important;
+}
+.pin17{
+    display: flex;
+    position: absolute;
+    height: 4rem;
+    top: 60%;
+    left: 8%;
+    opacity: 0;
+    animation: pinseventeen 13s ease-out ;
+    animation-delay: 24s;
+    color: white;
+
+}
+#hawaii{
+    left: 13% !important;
+}
+.introtitle{
+position: absolute;
+display: flex;
+flex-direction: column;
+left: 4%;
+color: white;
+top: 10%;
+text-align: center;
+}
+.intromixzers{
+    font-size: 10rem;
+    font-weight: bolder;
+    text-shadow: cadetblue;
+    animation: titleshow 2s ease-out forwards;
+    animation-delay: 37s;
+    opacity: 0;
+    -webkit-text-stroke-color: 2px aquamarine;
+}
+.submixzer{
+    padding: 0;
+    margin: 0;
+    font-size: 4rem;
+    margin-top: -5rem;
+    animation: titleshow 2s ease-out forwards;
+    animation-delay: 37s;
+    opacity: 0;
+}
+.introjoin{
+   font-size: 3rem;
+   margin-left: 28rem;
+   background-color: rgb(0, 0, 0);
+   color: rgb(255, 255, 255);
+   opacity: 0;
+   animation: signShow 2s ease-out forwards;
+   animation-delay: 39s;
+   -webkit-text-stroke-color: 2px rgb(249, 254, 252);
+   margin-top: 3rem;
+   padding: 0.5rem;
+}
+.introjoin:hover{
+    background-color: rgba(49, 66, 217, 0.15);
+    color: blue;
+    
+}
+@media screen and (max-width: 850px) {
+    .intromixzers {
+        font-size: 2rem;
+    }
+    .submixzer {
+        font-size: 1rem;
+        margin-top: 2rem;
+    }
+    .introjoin {
+        margin-left: 0;
+        margin-top: 4rem;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1100px) {
+    .intromixzers {
+        font-size: 4rem;
+    }
+    .submixzer {
+        font-size: 2rem;
+        margin-top: -2.5rem;
+    }
+    .introjoin {
+        margin-left: 20%;
+        margin-top: 2rem;
+    }
+}
+@media screen and (min-width: 992px) {
+    .intromixzers {
+        font-size: 10rem;
+    }
+    .submixzer {
+        font-size: 4rem;
+        margin-top: -5rem;
+    }
+    .introjoin {
+        margin-left: 28rem;
+        margin-top: 3rem;
+    }
+}
+
+  /*************** KEYFRAMES ***********/
+  @keyframes slide-from-left {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+  }
+@keyframes slide-from-right {
+    0%  {
+        opacity: 0;
+        transform: translateX(-100%); ;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+      }
+}
+@keyframes background-change {
+    0%{
+        background-color: white;
+    }
+    100%{
+        background-color: #000000;
+    }
+}
+@keyframes showImage {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes firstpin {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes secondpin {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes thirdpin {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes fourthpin {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes fifthpin {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes sixthpin {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes seventhpin {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes eigthpin {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes ninthpin {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes tenthpin {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes pineleven {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes pintwelve {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes pinthirteen {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes pinfourteen {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes pinfifteen {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes pinsixteen {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes pinseventeen {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+        color: white
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes titleshow {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes signShow{
+    0%{
+        opacity: 0;
+        transform: translate translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-100%);
+    }
+}
+
+/******** MEDIA QUERY ******/
+@media only screen and (max-width: 1100px) {
+  .mixme {
+    padding: 0 auto;
+    margin-left: 3rem;
+    font-size: 9rem !important;
+    margin-top: 10rem;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .mixme {
+    padding: 0 auto;
+    margin-left: 3rem;
+    font-size: 9rem !important;
+    margin-top: 10rem;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .mixme {
+    padding: 0 auto;
+    margin-left: 3rem;
+    font-size: 5rem !important;
+    margin-top: 10rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .mixme {
+    padding: 0 auto;
+    margin-left: 3rem;
+    font-size: 3rem !important;
+    margin-top: 10rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .mixme {
+    font-size: 6rem;
+  }
+}
+
+
+
+  
+/** ABOUT SECTION **/
+a{
+    color: white !important;
+}
+
+#about-all{
+    background-color: black;
+    color: white;
+}
+.about-title, .about-team{
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+.about-p{
+    margin: 2rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.everything{
+    background-color: black;
+    color: white;
+    width: 100%;
 }
 .team{
-    width: 100%;
-    height : 100%;
-    object-fit: contain;
+    display: flex;
+    justify-content: space-between;
 }
-.jon{
-border-radius: 25%;
-height: 350px;
-width: 350px;
-overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #000000;
-margin-top: 1rem;
-}
-.mel{
-    border-radius: 25%;
-    height: 350px;
-    width: 350px;
-overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #000000
-}
-.em{
-    border-radius: 25%;
-    height: 350px;
-    width: 350px;
-overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #000000
-}
-.teams{
-    font-size: 30px;
+.name{
     text-align: center;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    color: #000000;
-    padding-top: 1rem;
+    font-size: 2rem;
+    margin-top: 1rem;
 }
-.jon-name{
-    padding-left: 8rem;
-    font-size: 55px;
-    color: rgb(1, 18, 62);
+.description{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1rem;
 }
-.mel-name{
-    padding-left: 6rem;
-    font-size: 55px;
-    color: rgb(1, 18, 62);
-    padding-top: 1rem;
+
+.space{
+    display: flex;
+    justify-content: space-between;
 }
-.em-name{
-    padding-left: 8rem;
-    font-size: 55px;
-    color: rgb(1, 18, 62);
-    padding-top: 1rem;
-}
-.jon-description{
-    margin-top: -2rem;
-    padding-left: 3rem;
-}
-.mel-description{
-    margin-top: -2rem;
-    padding-left: 4rem;
-}
-.em-description{
-    margin-top: -2rem;
-    padding-left: 6rem;
-}
-.github-manager{
-    padding-left: 0.8rem
-}
-.designer{
-    padding-left: 4rem;
-}
-.documenter{
-    padding-left: 1rem;
+
+.team-img{
+    max-height: 360px;
+    max-width: 360px;
+    margin: auto;
+ }
+
+ #mel{
+    padding-right: 2rem, !important;
+    margin-left: 2rem;
+ }
+
+.team-titles{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
 }
 
 
@@ -516,19 +1095,60 @@ background-color: #000000
     width: 40rem;
     margin-left: -16rem;
     margin-top: -1rem;
+    display: flex;
 }
 .login-mixzer{
     font-size: 7rem;
     margin-left: 10rem;
+    animation: login 2s ease-in forwards;
+    animation-delay: 5s;
 
+}
+@media (max-width: 910px) {
+    .divlogins{
+        height: auto;
+        width: auto;
+        margin: 2rem auto;
+        margin-left: -10rem;
+    }
+
+    .login-image{
+        height: 30rem;
+        width: 25rem;
+        margin: 0 auto;
+    }
+
+    .login-mixzer{
+        font-size: 4rem;
+        margin-left: 15rem;
+    }
+}
+@media (max-width: 600px) {
+    .login-image{
+        display: none;
+    }
+}
+@keyframes login{
+    0%{
+        color: black;
+    }
+    100%{
+        color: white;
+    }
 }
 .login-name{
     text-align: center;
     margin-left: 15rem;
     margin-bottom: 1rem;
-    margin-top: -3rem
+    margin-top: -3rem;
+    animation: login 2s ease-in forwards;
+    animation-delay: 4s;
 }
-.btn{
+.form-label{
+    animation: login 2s ease-in forwards;
+    animation-delay: 4s;
+}
+.loginBtn{
     font-size: 1rem;
     height: 2.5rem;
     width: 7rem;
@@ -538,11 +1158,28 @@ background-color: #000000
     border: 0;
     margin-left: 4rem;
 }
+.loginBtn:hover {
+    background-color: rgba(9, 66, 188, 0.35);
+    color: white;
+}
 .login-sign{
     color: black;
     margin-top: -4rem;
     margin-left: 5rem;
     text-decoration-line: underline;
+    animation: loginbtn 2s ease-in forwards;
+    animation-delay: 5s
+}
+@keyframes loginbtn{
+    0%{
+        color: black
+    }
+    100%{
+        color: blue
+    }
+}
+button.btn{
+    margin-left: 4rem;
 }
 form{
     margin-left: 12rem;
@@ -553,9 +1190,13 @@ form{
 }
 #id_username{
     margin-left: 3.3rem;
+    height: 2rem;
+    width: 10rem;
 }
 #id_password{
     margin-left: 3.2rem !important;
+     height: 2rem;
+    width: 10rem;
 }
 /****************** SIGN UP PAGE ***********************/
 .signup-div{
@@ -576,9 +1217,41 @@ form{
     margin-right: 5rem;
     padding: 1rem;
     margin-left: 0.5rem;
-    text-align: center;    
+    text-align: center;  
+    animation: login 2s ease-in forwards;
+    animation-delay: 4s;  
 
 }
+@media (max-width: 768px) {
+    .signup-div{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .signup-image{
+        height: 25rem;
+        width: 30rem;
+        margin-bottom: 2rem;
+    }
+
+    .signup-form{
+        height: auto;
+        width: 80%;
+        margin: 0;
+    }
+}
+@media (max-width: 950px) {
+    .signup-image{
+        height: 25rem;
+        width: 30rem;
+    }
+}
+@media (max-width: 480px) {
+    .signup-form{
+        width: 100%;
+    }
+}
+
 .helptext{
     display: none;
 }
@@ -603,6 +1276,8 @@ input{
 .createaccount{
     padding-bottom: 1rem;
     font-size: 3rem;
+    animation: login 2s ease-in forwards;
+    animation-delay: 4s;
 }
 .signupbtn{
     font-size: 1rem;
@@ -615,14 +1290,16 @@ input{
     margin-left: 10rem;
     margin-top: 1rem;
 }
+.signupbtn:hover {
+    background-color: rgba(9, 66, 188, 0.35);
+    color: white;
+}
 
 
 
 /* profile page */
 #profile-test{
-    background-color: rgb(7, 49, 73, 0.9);
-    
-}
+    background-color: black;}
 
 .upper, #jp-form{
     display: flex;
@@ -636,7 +1313,7 @@ input{
     background:rgb(255, 255, 255, 0.93);
     border-radius: 20px;
     margin: 2rem;
-    box-shadow: rgb(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(255, 255, 255, 0.725) 0px 5px 15px;
 
     
 }
@@ -646,7 +1323,7 @@ input{
     text-align: center;
   
 }
-.left > #profile-location, #profile-email, #profile-student{
+.left > #profile-location, #profile-email, #profile-student, #profile-first, #profile-last{
     font-size: 1.2rem;
     margin: 0, 2rem;
     text-align: center;
@@ -656,21 +1333,13 @@ input{
     font-size: 1.2rem;
     margin: 0, 2rem;
 }
+#profile-btn {
+    margin-left: 0 !important;
+}
 
-/* 
-#profile-btn{
-    font-size: 1rem;
-    height: 2.5rem;
-    width: 7rem;
-    background-color: #000000;
-    color:white ;
-    border-radius: 5px;
-    padding-top: .25rem;
-    padding-bottom: .25rem;
-    padding-right: .5rem;
-    padding-left: .5rem;
-    margin-left: 10rem;
-} */
+#profilebtn{
+    padding-left: 15rem !important;
+}
 /* 
 #profile-btn:hover{
     background-color:navy;
@@ -690,16 +1359,149 @@ input{
     margin-top: 1rem;
 
 }
+/******************* confirm delete account view ******************/
+.account-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height:auto;
+    
+}
+.account-form{
+    margin: 0 !important;
+    border: black 2px solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.account-btn{
+    margin: 15px !important;
+}
+.decline-delete, .confirm-delete {
+    background: dodgerblue !important;
+    color: #fff !important;
+    border: #fff !important;
+    color: white !important;
+    font-size: 1.4rem;
+    padding: 10px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+}
+footer{
+    width: 100% !important;
+}
+/******************* edit account view ******************/
+
+#edit-profile-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: black 2px solid;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 0 !important;
+}
+.edit-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: rem;
+}
+.edit-profile-btn {
+    /* width: 100% !important; */
+    background: dodgerblue !important;
+    color: #fff !important;
+    border: #fff !important;
+}
+input[type="text"], input[type="email"], select {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  tr{
+    display: flex;
+    justify-content: left;
+  }
 
 /******************* JOB POST PAGE  ******************/
 #jp-body{
-   background: rgb(7, 49, 73, 0.93);
+background: black;
+
 }
 
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.center > p, textarea{
+    position: relative !important;
+    width: 500px !important;
+    height: 60px !important;
+    margin-top: 0px !important;
+    
+    margin-bottom: 50px !important;
+}
+.center > p > input, textarea{
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    border: 2px solid #000 !important;
+    outline: none !important;
+    background: none !important;
+    padding: 10px !important;
+    border-radius: 10px !important;
+    font-size: 1.2em !important;
+}
+.center > p > label{
+        position: absolute !important;
+        top: 14px !important;
+        left: 20px !important;
+        font-size: 1em !important;
+        transition: 0.6s !important;
+        font-family: sans-serif !important;
+}
+
+.center > p > #id_title, #id_job_description, #id_job_type, #id_salary, #id_schedule{
+    transform: translateY(45px) !important;
+}
+
+.center > p > [type="button"] {
+    width: 100% !important;
+    background: dodgerblue !important;
+    color: #fff !important;
+    border: #fff !important;
+}
+.btn-about{
+    flex: 0 0 25%;
+    max-width: 80% !important;
+}
+.posting{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-control{
+    padding: 1rem !important;
+}
+label{
+    width: auto;
+}
 #jp-h1{
     font-size: 3rem;
     margin: 1rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     text-align: center;
     color: rgb(255, 255, 255, 0.87);
 }
@@ -740,6 +1542,8 @@ input{
     margin: 0 auto;
     margin-top: 2rem;
     height: 33.2rem;
+    animation: login 2s ease-in forwards;
+    animation-delay: 5s;
 }
 #id_applicants{
     display: none;
@@ -752,24 +1556,44 @@ input{
 }
 #id_job_description{
     margin-top: 2rem;
+    
 }
-input.btn{
-    margin-left: 15rem;
-    margin-top: 2rem;
-
+.editBtn{
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    font-size: 1rem;
+    padding: 1rem;
+    width: 10rem;
+    background-color: rgba(86, 177, 207, 0.35);
+    animation: messageBtn 2s ease-in forwards;
+    animation-delay: 5s;
 }
 .edit-title{
     text-align: center;
+    animation: login 2s ease-in forwards;
+    animation-delay: 5s;
+    font-size: 5rem;
+    margin-top: -2rem;
+}
+.teal-text{
+    color:rgb(15, 90, 170)
 }
 /********************* DELETE JOB ****************/
 .deletejob{
    text-align: center;
    margin-top: 10rem;
    font-size: 5rem;
+   animation: login 2s ease-in forwards;
+   animation-delay: 4s;
 }
 .sure-delete{
     text-align: center;
     font-size: 2rem;
+    animation: login 2s ease-in forwards;
+    animation-delay: 5s;
 }
 .cancel-job{
     background-color: #000000;
@@ -782,10 +1606,39 @@ input.btn{
     padding-top: 0;
 }
 .deletebutton{
-     text-align: center;
+    text-align: center;
     font-size: 2rem;
-    padding: 0;
-    margin-left: 26rem
+    padding: 7px;
+    margin-left: 20rem;
+    animation: deleteKey 1s ease-in forwards; 
+    animation-delay: 5s;
+}
+@keyframes deleteKey {
+    0%{
+        background-color: rgba(255, 255, 255, 0.35);
+    }
+    100%{
+        background-color: rgba(227, 30, 30, 0.35);
+        color: white;
+    }
+}
+.cancelbutton{
+    text-align: center;
+    font-size: 2rem;
+    padding: 7px;
+    color: black;
+    margin-left: 2rem;
+    animation: cancelKey 1s ease-in forwards;
+    animation-delay: 5s;
+}
+@keyframes cancelKey    {
+    0%{
+        background-color: white;
+    }
+    100% {
+        background-color: rgba(19, 47, 201, 0.35);
+        color: white
+    }
 }
 a.canceltag{
     padding-bottom: 11rem;
@@ -793,15 +1646,42 @@ a.canceltag{
     margin: 0 auto;
     font-size: 1rem;
 }
+.deletebtndiv{
+    display: flexbox;
+    justify-content: space-around;
+    align-items: center;
 
+}
+@media (max-width: 800px) {
+    .deletebtndiv {
+    flex-direction: column;
+    margin-left: -20rem;
+    }
+    }
+    @media (max-width: 470px) {
+        .deletebtndiv {
+        flex-direction: column;
+        margin-left: -30rem;
+        }
+        }
+        @media (max-width: 310px) {
+            .deletebtndiv {
+            flex-direction: column;
+            margin-left: -10rem;
+            }
+            }
 /************************* MIXZERS DETAIL PAGE ********************/
 .detail-background{
+    display: flex;
     margin-top: -1rem;
     margin-right: -1rem;
     margin-left: -1rem;
     height: 17rem;
     background-image: url('https://images.wallpaperscraft.com/image/single/books_shelf_collection_119979_1600x900.jpg');
-   
+    background-size: cover;
+    width: 200%;
+    height: 10rem;
+  
 }
 .mixzer-img{
     border-radius: 50%;
@@ -832,7 +1712,8 @@ a.canceltag{
     margin-top: -2rem;
 }
 .user-review{
-    margin-left: 0.3rem;
+    margin-left: 0rem;
+    font-size: 1rem;
 }
 .mixzer-reviews{
     border: 3px solid black;
@@ -840,26 +1721,339 @@ a.canceltag{
     margin-top: 2rem;
     height: 15rem;
 }
-.mixzertitle-reviews{
-    margin: 0 auto;
-    text-align: center;
-    padding: 5px;
-}
-.reviews-here{
-    text-align: center;
-}
+
 .mixzer-jobs{
-    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 55rem;
     margin: 0 auto;
-    margin-top: -30rem;
-    height: 30rem;
-    color: black;
-    margin-left: 32rem;
+    height: 27rem;
+    animation: loginOne 2s ease-in forwards;
+    animation-delay: 5s;
+    margin-top: -12rem;
+    margin-left: 25rem;
+}
+@media (max-width: 1000px) {
+    .detail-user{
+        margin-left: 20rem;
+        font-size: 50px;
+    }
+    
+    .mixzer-location{
+        margin-left: 20rem;
+        font-size: 16px;
+        margin-top: -2rem;
+    }
+    
+    .mixzer-interaction{
+        margin-left: 5rem;
+    }
+    
+    .mixzer-reviews{
+        width: 25rem;
+        margin-top: 1rem;
+    }
+    
+    .mixzer-jobs{
+        width: 45rem;
+        margin-left: 15rem;
+        margin-top: -8rem;
+        height: 23rem;
+    }
+}
+@media (max-width: 700px) {
+    .detail-user{
+        margin-left: 20rem;
+        font-size: 40px;
+    }
+    
+    .mixzer-location{
+        margin-left: 20rem;
+        font-size: 14px;
+        margin-top: -1rem;
+    }
+    
+    .mixzer-interaction{
+        margin-left: 2rem;
+    }
+    
+    .mixzer-reviews{
+        width: 20rem;
+        margin-top: 1rem;
+    }
+    
+    .mixzer-jobs{
+        width: 35rem;
+        margin-left: 10rem;
+        margin-top: -8rem;
+        height: 20rem;
+    }
+}
+
+@keyframes loginOne{
+    0%{
+        color: black;
+       
+    }
+    100%{
+        color: white;
+     
+    }
+
 }
 .mixzerjob-posted{
     text-align: center;
 }
 .mixzer-about{
    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .detail-background{
+        height: 8rem;
+    }
+    .mixzer-img{
+        height: 7rem;
+        width: 7rem;
+        margin-top: -4rem;
+        margin-left: 1rem;
+    }
+    .detail-user{
+        margin-left: 10rem;
+        margin-top: -6rem;
+        font-size: 30px;
+    }
+    .mixzer-location{
+        margin-left: 11rem;
+        margin-top: -1rem;
+        font-size: 14px;
+    }
+    .mixzer-interaction{
+        margin-left: 1rem;
+       margin-bottom: 4rem;
+    }
+    .mixzer-reviews{
+        width: 25rem;
+        
+    }
+    .mixzer-jobs{
+        margin-top: -5rem;
+        margin-left: -5rem;
+        height: 15rem;
+    }
+    .user-review{
+        padding: 0;
+        display: flex;
+        align-self: start;
+        margin-top: -5rem
+       
+        
+    }
+    .user-message{
+        padding: 0;
+        display: flex;
+        align-self: start;
+        margin-top: -5rem
+    }
+}
+@media (max-width: 337px) {
+    .detail-background{
+        height: 8rem;
+    }
+    .mixzer-img{
+        height: 7rem;
+        width: 7rem;
+        margin-top: -4rem;
+        margin-left: 1rem;
+    }
+    .detail-user{
+        margin-left: 10rem;
+        margin-top: -6rem;
+        font-size: 30px;
+    }
+    .mixzer-location{
+        margin-left: 11rem;
+        margin-top: -1rem;
+        font-size: 14px;
+    }
+    .mixzer-interaction{
+        margin-left: 1rem;
+       margin-bottom: 4rem;
+    }
+    .mixzer-reviews{
+        width: 25rem;
+        
+    }
+    .mixzer-jobs{
+        margin-top: -5rem;
+        margin-left: -10rem;
+        height: 15rem;
+    }
+    .user-review{
+        padding: 0;
+        display: flex;
+        align-self: start;
+        margin-top: -5rem
+       
+        
+    }
+    .user-message{
+        padding: 0;
+        display: flex;
+        align-self: start;
+        margin-top: -5rem
+    }
+}
+/******************REVIEW*************/
+.review-title{
+    text-align: center;
+    color: black;
+    animation: reviewAnimate 2s ease-in forwards;
+    animation-delay: 5s;
+    padding-top: 4rem;
+}
+.review-form{
+    display: flex;
+    flex-direction: column;
+    color: black;
+    animation: reviewAnimate 2s ease-in forwards;
+    animation-delay: 5s;
+}
+@media (max-width: 700px){
+    .review-form{
+        margin-left: -5rem;
+    }
+}
+@keyframes reviewAnimate    {
+    0%{
+        color: #000000;
+    }
+    100%{
+        color: white;
+    }
+}
+.reviewBtn{
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    font-size: 1rem;
+    padding: 1rem;
+    width: 10rem;
+    background-color: rgba(86, 177, 207, 0.35);
+    animation: messageBtn 2s ease-in forwards;
+    animation-delay: 5s;
+}
+/****************MESSAGE**********/
+.message{
+    text-align: center;
+    color: black;
+    animation: message 2s ease-in forwards;
+    animation-delay: 5s
+}
+.message-form{
+    color: black;
+    animation: message 2s ease-in forwards;
+    animation-delay: 5s;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+@media (max-width: 750px){
+    .message-form{
+        margin-left: -5rem
+    }
+}
+@keyframes message {
+    0%{
+        color: white;
+    }
+    100%{
+        color: white;
+    }
+}
+.send-message{
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    font-size: 1rem;
+    padding: 1rem;
+    width: 10rem;
+    background-color: rgba(86, 177, 207, 0.35);
+    animation: messageBtn 2s ease-in forwards;
+    animation-delay: 5s;
+}
+@keyframes messageBtn   {
+    0%{
+        background-color: rgba(86, 177, 207, 0.35); 
+    }
+    100%{
+        background-color: rgba(93, 121, 247, 0.35);
+        color: white;
+    }
+}    
+/* job near you page */
+.job-deck{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+.a-black{
+    color: blue !important;
+}
+
+.job-card{
+    /* border: #44e5e7 2px solid; */
+    display: flex;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.search_line{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    
+}
+
+.card-body > a{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+#NJ_h1{
+    font-size: 3rem;
+    margin-top: 2rem;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+
+}
+#NJ_title{
+    margin: 15px;
+}
+#NJ_type{
+    margin-top: 25px;
+}
+#NJ_type, #NJ_salary, #NJ_schedule{
+    font-size: 15px;
+}
+
+a > .a-b {
+    color: blue !important;
+}
+#id_content {
+    position: relative !important;
+    color: white;
 }
