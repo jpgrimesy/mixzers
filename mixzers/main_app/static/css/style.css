@@ -1,5 +1,6 @@
 body::-webkit-scrollbar{
     display: none;
+    width: auto;
 }
 header{
     background-color: #000000;
@@ -15,8 +16,8 @@ footer{
     background-color: #000000;
     color: white;
     height: 4rem;
-    margin: -1 rem;
-    margin-top: -4rem;
+    margin: 1rem;
+        /* margin-top: -4rem; */
     position: fixed;
     width: 90rem;
     margin-left: -0.5rem;
@@ -40,9 +41,10 @@ a{
 ul{
     list-style: none;
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;
 
 }
+
 
 /** BRAND **/
 
@@ -1022,143 +1024,65 @@ text-align: center;
 
   
 /** ABOUT SECTION **/
-.mix{
-    color: #073149;
-}
-.z{
-    color: aquamarine;
-}
-.one{
-background-image: linear-gradient(90deg, rgb(91, 236, 246), rgb(79, 70, 229));
-height: 40rem;
-margin-top: -6rem;
-margin-left: -0.5rem;
-margin-right: -0.5rem;
-padding-bottom: 8rem;
-color: white;
-}
-.about-title{
-    padding-top: 7rem;
-    font-size: 90px;
-    text-align: center;
-}
-.about{
-    font-size: 35px;
-    text-align: center;
-    color: black;
-    display: flex;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    justify-content: center;
+a{
+    color: white !important;
 }
 
-.three{
-    height: 80rem;
-    background-image: linear-gradient(90deg, rgb(91, 236, 246), rgb(79, 70, 229));
-    margin-left: -0.5rem;
-    margin-right: -0.5rem;
-    border-top: 20px solid whitesmoke;
-    
-}
-
-.meet-team{
-    display: flex;
-    padding-top: 3rem;
-}
-.about-team{
-    padding-top: 2rem;
-    font-size: 90px;
-    text-align: center;
-    margin-right: -0.5rem;
-    margin-left: -0.5rem;
+#about-all{
+    background-color: black;
     color: white;
 }
+.about-title, .about-team{
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+.about-p{
+    margin: 2rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
 
-.meet-team{
-    display: flex;
-    justify-content: space-around;
+.everything{
+    background-color: black;
+    color: white;
+    width: 100%;
 }
 .team{
-    width: 100%;
-    height : 100%;
-    object-fit: contain;
+    display: flex;
+    justify-content: space-between;
 }
-.jon{
-border-radius: 25%;
-height: 350px;
-width: 350px;
-overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #000000;
-margin-top: 1rem;
-}
-.mel{
-    border-radius: 25%;
-    height: 350px;
-    width: 350px;
-overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #000000
-}
-.em{
-    border-radius: 25%;
-    height: 350px;
-    width: 350px;
-overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #000000
-}
-.teams{
-    font-size: 30px;
+.name{
     text-align: center;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    color: #000000;
-    padding-top: 1rem;
+    font-size: 2rem;
+    margin-top: 1rem;
 }
-.jon-name{
-    padding-left: 8rem;
-    font-size: 55px;
-    color: rgb(1, 18, 62);
+.description{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1rem;
 }
-.mel-name{
-    padding-left: 6rem;
-    font-size: 55px;
-    color: rgb(1, 18, 62);
-    padding-top: 1rem;
+
+.space{
+    display: flex;
+    justify-content: space-between;
 }
-.em-name{
-    padding-left: 8rem;
-    font-size: 55px;
-    color: rgb(1, 18, 62);
-    padding-top: 1rem;
-}
-.jon-description{
-    margin-top: -2rem;
-    padding-left: 3rem;
-}
-.mel-description{
-    margin-top: -2rem;
-    padding-left: 4rem;
-}
-.em-description{
-    margin-top: -2rem;
-    padding-left: 6rem;
-}
-.github-manager{
-    padding-left: 0.8rem
-}
-.designer{
-    padding-left: 4rem;
-}
-.documenter{
-    padding-left: 1rem;
+
+.team-img{
+    max-height: 360px;
+    max-width: 360px;
+    margin: auto;
+ }
+
+ #mel{
+    padding-right: 2rem, !important;
+    margin-left: 2rem;
+ }
+
+.team-titles{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
 }
 
 
@@ -1385,9 +1309,7 @@ input{
 
 /* profile page */
 #profile-test{
-    background-color: rgb(7, 49, 73, 0.9);
-    
-}
+    background-color: black;}
 
 .upper, #jp-form{
     display: flex;
@@ -1401,7 +1323,7 @@ input{
     background:rgb(255, 255, 255, 0.93);
     border-radius: 20px;
     margin: 2rem;
-    box-shadow: rgb(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(255, 255, 255, 0.725) 0px 5px 15px;
 
     
 }
@@ -1411,7 +1333,7 @@ input{
     text-align: center;
   
 }
-.left > #profile-location, #profile-email, #profile-student{
+.left > #profile-location, #profile-email, #profile-student, #profile-first, #profile-last{
     font-size: 1.2rem;
     margin: 0, 2rem;
     text-align: center;
@@ -1445,16 +1367,149 @@ input{
     margin-top: 1rem;
 
 }
+/******************* confirm delete account view ******************/
+.account-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height:auto;
+    
+}
+.account-form{
+    margin: 0 !important;
+    border: black 2px solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.account-btn{
+    margin: 15px !important;
+}
+.decline-delete, .confirm-delete {
+    background: dodgerblue !important;
+    color: #fff !important;
+    border: #fff !important;
+    color: white !important;
+    font-size: 1.4rem;
+    padding: 10px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+}
+footer{
+    width: 100% !important;
+}
+/******************* edit account view ******************/
+
+#edit-profile-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: black 2px solid;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 0 !important;
+}
+.edit-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: rem;
+}
+.edit-profile-btn {
+    /* width: 100% !important; */
+    background: dodgerblue !important;
+    color: #fff !important;
+    border: #fff !important;
+}
+input[type="text"], input[type="email"], select {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  tr{
+    display: flex;
+    justify-content: left;
+  }
 
 /******************* JOB POST PAGE  ******************/
 #jp-body{
-   background: rgb(7, 49, 73, 0.93);
+background: black;
+
 }
 
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.center > p, textarea{
+    position: relative !important;
+    width: 500px !important;
+    height: 60px !important;
+    margin-top: 0px !important;
+    
+    margin-bottom: 50px !important;
+}
+.center > p > input, textarea{
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    border: 2px solid #000 !important;
+    outline: none !important;
+    background: none !important;
+    padding: 10px !important;
+    border-radius: 10px !important;
+    font-size: 1.2em !important;
+}
+.center > p > label{
+        position: absolute !important;
+        top: 14px !important;
+        left: 20px !important;
+        font-size: 1em !important;
+        transition: 0.6s !important;
+        font-family: sans-serif !important;
+}
+
+.center > p > #id_title, #id_job_description, #id_job_type, #id_salary, #id_schedule{
+    transform: translateY(45px) !important;
+}
+
+.center > p > [type="button"] {
+    width: 100% !important;
+    background: dodgerblue !important;
+    color: #fff !important;
+    border: #fff !important;
+}
+.btn-about{
+    flex: 0 0 25%;
+    max-width: 80% !important;
+}
+.posting{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-control{
+    padding: 1rem !important;
+}
+label{
+    width: auto;
+}
 #jp-h1{
     font-size: 3rem;
     margin: 1rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     text-align: center;
     color: rgb(255, 255, 255, 0.87);
 }
@@ -1509,6 +1564,7 @@ input{
 }
 #id_job_description{
     margin-top: 2rem;
+    
 }
 .editBtn{
     margin: 0 auto;
@@ -1759,6 +1815,7 @@ a.canceltag{
 .mixzer-about{
    text-align: center;
 }
+
 @media (max-width: 600px) {
     .detail-background{
         height: 8rem;
@@ -1946,4 +2003,56 @@ a.canceltag{
         background-color: rgba(93, 121, 247, 0.35);
         color: white;
     }
+    
+/* job near you page */
+.job-deck{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+.a-black{
+    color: blue !important;
+}
+
+.job-card{
+    /* border: #44e5e7 2px solid; */
+    display: flex;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.search_line{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    
+}
+
+.card-body > a{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+#NJ_h1{
+    font-size: 3rem;
+    margin-top: 2rem;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+
+}
+#NJ_title{
+    margin: 15px;
+}
+#NJ_type{
+    margin-top: 25px;
+}
+#NJ_type, #NJ_salary, #NJ_schedule{
+    font-size: 15px;
 }

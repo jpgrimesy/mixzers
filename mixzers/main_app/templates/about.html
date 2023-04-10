@@ -1,46 +1,102 @@
-{% extends 'base.html' %}
-{% block content %}
-<br>
-<div class="one">
-<h1 class="about-title">What is <span class='mix'>Mix<span class='z'>Z</span>ers</span></h1>
-<container class="about">
-    <p> MixZers is dedicated to helping college students find employment opportunities using their .edu email addresses. We understand that finding a job as a student can be challenging, especially when you don't have a lot of work experience yet. That's why we've created a platform that connects students with employers who are specifically looking to hire college students.
-       <br>
-       <br> For employers, our platform offers an easy and effective way to find and hire college students for odd jobs, temporary work, and more. By posting job opportunities on our platform, you'll be able to tap into a talented and motivated pool of college students who are eager to make some extra cash and gain valuable work experience.
-    </p>
-</container>
+{% load static %}
 
-<div class="three">
-<h1 class="about-team">The <br><span class='mix'>Mix<span class='z'>Z</span>ers</span> Team</h1>
-<container>
-    <p  class="teams">Our team is made up of college students who understand the challenges of balancing academics and work. We're passionate about helping our fellow students succeed, and we're committed to providing a user-friendly app that makes it easy to search for jobs, apply for positions, and connect with employers.</p>
-</container>
-<div class="meet-team">
-<div class="jon-div">
-<div class="jon">
-    <img src="https://i.ibb.co/gyh4CRz/jon-720.jpg" class="team">
-</div> 
-<h1 class="jon-name">Jon</h1>
-<h1 class='jon-description'><span class='github-manager'>GitHub Manager</span> <br> Database Manager</h1>
-</div>
-<div class="mel-div">
+<!DOCTYPE html>
+<html class="about-page" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 
-<div class="mel">
-    <img src="https://i.ibb.co/ZxSt1mM/26733354-2012031492170397-6115463589067431601-n.jpg" class="mel">
-</div>
-<h1 class="mel-name">Melrose</h1>
-<h1 class='mel-description'> <span class='designer'>Designer</span>
-<br> Database Manager</h1>
-</div>
-<div class="em-div">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>About MixZers</title>
 
-<div class="em">
-    <img src="https://i.ibb.co/yQ8pNsf/screenshot-2023-03-28-at-2-02-45-pm-720.png" class="team">
-</div>
-<h1 class="em-name">Emily</h1>
-<h1 class='em-description'><span class="documenter">Documenter </span>
-<br> Scrum Master</h1>
-</div>
-</div>
+</head>
+<body id="about-all">
+    <header>
+        <nav id="about-nav">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'profile' %}">Your Profile</a></li>
+                <li><a href="{% url 'post_job' %}">Post A Job</a></li>
+                <li><a href="{% url 'nearby_jobs' %}" class="nearjob">Jobs Near You</a></li>
+                <li><a href="{% url 'logout' %}" class='login'>Log out</a></li> 
+                {% else %}
+                <li><a href="{% url 'login' %}" class='login'>Log In</a></li> 
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <div class="everything"></div>
+        <br>
+            <div class="one">
+                <h1 class="about-title">What is <span class='mix'>Mix<span class='z'>Z</span>ers</span></h1>
+                    <container class="about">
+                        <p class="about-p"> MixZers is a way for college students to make money on their own time. .edu email addresses. We understand that finding a job as a student can be challenging with a busy schedule and barely any time for yourself, especially when you don't have a lot of work experience yet. 
+                            That's why we've created a platform that connects students to jobs that suit their schedule and allows them to develop their job experience in the process, all while making some cash!
+                        </p>
 
-{% endblock %}
+                        <p class="about-p"> We've noticed navigting the job market online lacks trust and transparency. From Facebook Marketplace, to Craigslist, to LinkedIn, it's hard to know who you're really talking to, whether you are posting jobs or applying to them.</p>
+                            <p class="about-p"><br>That being said...
+                            For students, Mixzers verifies your .edu email to give you the confidence to apply to any of the jobs knowing that the job poster knows you're a real person!
+                        <br> For job posters, our platform offers an easy and effective way to find and hire real people for odd jobs, temporary work, and more. By posting job opportunities on our platform, you'll be able to tap into a talented and motivated pool of college students who are eager to make some extra cash and gain valuable work experience.
+                        </p>
+                    </container>
+
+                    <h1 class="about-team"><span class='mix'>Mix<span class='z'>Z</span>ers</span> Team</h1>
+                    <container>
+                            <p  class="teams about-p">Our team is made up of college students who understand the challenges of balancing academics and work. We're passionate about helping our fellow students succeed, and we're committed to providing a user-friendly app that makes it easy to search for jobs, apply for positions, and connect with employers.</p>
+                    </container>
+
+
+                    
+            </div>
+            <div class="space col-12">
+                <div class=" col-1"></div>
+                <div class="team col-10">
+                    <img src="../static/mixpic_jon_new.png" class="team-img col-4">
+                        
+
+                    <img src="../static/mixpic_mel_new.png" class="mel team-img col-4">
+
+                    
+                    <img src="../static/mixpic_em_new.png" class="team-img col-4">
+                        
+                </div>
+                <div class="space col-1"> </div>
+            </div>
+
+
+            <div class="team-titles col-12">
+
+                <div class="col-1"></div>
+                <div class="jon team-section col-3">
+                    <h1 class="name">Jon</h1>
+                        <h1 class='description'><span class='github-manager'>GitHub Manager</span> <br> Database Manager</h1>
+                </div>
+
+                <div class="mel team-section col-3">
+                    <h1 class="name">Melrose</h1>
+                        <h1 class='description'><span class='designer'>Designer</span> <br> Database Manager</h1>
+                </div>
+
+                <div class="em team-section col-3">
+                    <h1 class="name">Emily</h1>
+                        <h1 class='description'><span class="documenter">Documenter</span> <br> Scrum Master</h1>        
+                </div>
+                <div class="col-1"></div>
+
+
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+
+
+        </body>
+        </html>

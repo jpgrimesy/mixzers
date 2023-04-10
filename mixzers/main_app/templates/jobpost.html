@@ -33,15 +33,19 @@
     </header>
 
 
-  <h1 id="jp-h1">Add a Job Post</h1>
+<div class="posting">
+    <h1 id="jp-h1">Add a Job Post</h1>
 
-
-  <form class="col-sm-8 signup-form" id="jp-form" method="POST" action="">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit" class="btn col-sm-3 btn-primary">Post Job</button>
-      
+    <form class="col-sm-8 signup-form form-control center" id="jp-form" method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-about col-sm-3 btn-primary">Post Job</button>
+        
     </form>
+</div>
+
+
+ 
   <br><br>
   <br><br>
    
