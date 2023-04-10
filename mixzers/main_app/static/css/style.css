@@ -1790,6 +1790,7 @@ a.canceltag{
         height: 20rem;
     }
 }
+
 @keyframes loginOne{
     0%{
         color: black;
@@ -2051,4 +2052,8 @@ a.canceltag{
 
 a > .a-b {
     color: blue !important;
+}
+#id_content {
+    position: relative !important;
+    color: white;
 }

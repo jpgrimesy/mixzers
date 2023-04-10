@@ -127,7 +127,7 @@ def create_review(request, user_id):
             review.save()
             return redirect('profile')
     form = ReviewForm()
-    return render(request, 'main_app/message_form.html', {
+    return render(request, 'main_app/review_form.html', {
         'form': form
     })
 

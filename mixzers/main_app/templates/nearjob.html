@@ -22,9 +22,13 @@
                 <li><a href="{% url 'about' %}">About</a></li>
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'profile' %}">Your Profile</a></li>
-                    <li><a href="{% url 'post_job' %}">Post A Job</a></li>
+                    
+                    {% if user.mixzer.is_student %}
                     <li><a href="{% url 'nearby_jobs' %}" class="nearjob">Jobs Near You</a></li>
-                    <li><a href="{% url 'logout' %}" class='login'>Log out</a></li> 
+                    {% else %}
+                    <li><a href="{% url 'post_job' %}">Post A Job</a></li>
+                    
+                    {% endif %}
                 {% else %}
                     <li><a href="{% url 'login' %}" class='login'>Log In</a></li> 
                 {% endif %}
@@ -34,15 +38,15 @@
 <!--- CONTENT GOES HERE -->
     {% if user %}  
         {% if jobs %}        
-            <h1 id="NJ_h1">Jobs Near {{ user.mixzer.location }}</h1>
+            <h1 id="NJ_h1" >Jobs found within {{ radius }} miles of {{ request.user }}</h1>
         {% else %}
-            <h1 id="no-jobs">No Jobs Near {{ user.mixzer.location }}</h1>
+            <h1 id="NJ_h1">No Jobs Near {{ user.mixzer.location }}</h1>
         {% endif %}
 
         <!-- <p class="col-12"> --to change your location edit it from your profile page --</p> -->
        
             <div class="search_line">
-                <h1>Jobs found within {{ radius }} miles of {{ request.user }}</h1>
+           
               <form method="POST" class="form-inline">
                   {% csrf_token %}
                   {{ form.as_p }}

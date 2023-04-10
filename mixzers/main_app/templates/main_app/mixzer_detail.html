@@ -2,7 +2,7 @@
 {% block content %}
     <div class="detail-background">
     </div>
-        <img class='mixzer-img' src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80">
+        <img class='mixzer-img' src="{{mixzer.photo_set.first.url}}">
     <h1 class='detail-user'>{{ mixzer.user }}</h1>
     <h3 class="mixzer-location">{{ mixzer.location}}</h3>
 
